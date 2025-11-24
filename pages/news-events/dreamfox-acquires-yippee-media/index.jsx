@@ -141,7 +141,7 @@ const NewsDetailPage = () => {
     content: `
     <p>DreamFox, the Digital + AI Marketing Agency, today announced the successful acquisition of Yippee Media, a fast-rising creative communications company. The move strengthens DreamFox’s integrated marketing and digital design capabilities across global markets. Over the coming weeks, YippeeMedia.com will be seamlessly migrated into DreamFox.com, uniting teams, clients, and technologies under one imaginative ecosystem.</p>
     
-    <p class="my-4">The acquisition enables DreamFox to scale its four core practices — AI-Driven Digital Marketing, Designare™ Experience Design, Branding & Strategy, and Content + Social Media Operations — by infusing Yippee’s storytelling heritage with DreamFox’s data-intelligent approach.
+    <p class="my-4">The acquisition enables DreamFox to scale its four core practices — AI-Driven Digital Marketing, Designara™ Experience Design, Branding & Strategy, and Content + Social Media Operations — by infusing Yippee’s storytelling heritage with DreamFox’s data-intelligent approach.
 </p>
     
 <p>
@@ -170,10 +170,10 @@ The integrated portfolio will empower B2B and B2C clients with sharper go-to-mar
     {
       id: 2,
       title:
-        "DreamFox Develops PlumJob.com Brand Through Its Designare™ Experience Services",
+        "DreamFox Develops PlumJob.com Brand Through Its Designara™ Experience Services",
       date: "November 14, 2025",
-      slug: "dreamfox-develops-plumjob-brand-designare-experience-services",
-      image: "/images/DreamForce_Plumjob_designare.webp",
+      slug: "dreamfox-develops-plumjob-brand-designara-experience-services",
+      image: "/images/DreamForce_Plumjob_designara.webp",
     },
     {
       id: 3,

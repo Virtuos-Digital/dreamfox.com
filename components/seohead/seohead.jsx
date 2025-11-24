@@ -21,10 +21,10 @@ const seoData = {
     image: "https://dreamfox.com/og-images/branding.jpg",
   },
   "/services/design-studio": {
-    title: "Designare™ Studio | Digital Experience & UX/UI Design-DreamFox",
+    title: "Designara™ Studio | Digital Experience & UX/UI Design-DreamFox",
     description:
-      "DreamFox's Designare™ Studio builds immersive digital experiences with UX/UI, DXP design, Webflow, Framer, React, and AI-powered creativity for modern brands.",
-    image: "https://dreamfox.com/og-images/designare_studio.jpg",
+      "DreamFox's Designara™ Studio builds immersive digital experiences with UX/UI, DXP design, Webflow, Framer, React, and AI-powered creativity for modern brands.",
+    image: "https://dreamfox.com/og-images/designara_studio.jpg",
   },
   "/services/digital-media-mix": {
     title: "Yippee Media | Digital Media Mix & Content Marketing-DreamFox",
@@ -80,13 +80,12 @@ const seoData = {
       "Explore DreamFox news, press releases, and events featuring acquisitions, partnerships, product launches, and industry updates shaping our digital innovation journey.",
     image: "https://dreamfox.com/og-images/news_and_events.jpg",
   },
-  "/news-events/dreamfox-acquires-yippee-media":
-    {
-      title: "DreamFox Acquires Yippee Media | Creative Intelligence Growth",
-      description:
-        "DreamFox announces the acquisition of Yippee Media, expanding its creative intelligence, digital design strength, and AI-driven marketing capabilities worldwide.",
-      image: "https://dreamfox.com/og-images/yippee_acquisition.jpg",
-    },
+  "/news-events/dreamfox-acquires-yippee-media": {
+    title: "DreamFox Acquires Yippee Media | Creative Intelligence Growth",
+    description:
+      "DreamFox announces the acquisition of Yippee Media, expanding its creative intelligence, digital design strength, and AI-driven marketing capabilities worldwide.",
+    image: "https://dreamfox.com/og-images/yippee_acquisition.jpg",
+  },
   "/news-events/dreamfox-enbrand-unite-integrated-branding-digital-experience-solutions":
     {
       title: "DreamFox & EnBrand Unite for Integrated Branding Innovation",
@@ -94,11 +93,11 @@ const seoData = {
         "DreamFox partners with EnBrand to deliver integrated branding, experience design, and AI-driven marketing, helping enterprises accelerate digital transformation.",
       image: "https://dreamfox.com/og-images/enbrand_partnership.jpg",
     },
-  "/news-events/dreamfox-develops-plumjob-brand-designare-experience-services":
+  "/news-events/dreamfox-develops-plumjob-brand-designara-experience-services":
     {
-      title: "DreamFox Develops PlumJob Brand with Designare™ Expertise",
+      title: "DreamFox Develops PlumJob Brand with Designara™ Expertise",
       description:
-        "DreamFox unveils PlumJob.com, a modern HRTech brand built through Designare™ experience design, delivering AI-driven, human-centric talent and hiring solutions.",
+        "DreamFox unveils PlumJob.com, a modern HRTech brand built through Designara™ experience design, delivering AI-driven, human-centric talent and hiring solutions.",
       image: "https://dreamfox.com/og-images/plumjob_brand.jpg",
     },
   "/news-events/plumjob-launch-dxpify-dxp-as-a-service-developed-by-dreamfox": {

@@ -31,17 +31,17 @@ const NewsCategory = () => {
     {
       id: 2,
       title:
-        "DreamFox Develops PlumJob.com Brand Through Its Designare™ Experience Services",
+        "DreamFox Develops PlumJob.com Brand Through Its Designara™ Experience Services",
       category: "Product Launch",
-      tags: ["PRODUCT LAUNCH", "DESIGNARE™"],
-      slug: "dreamfox-develops-plumjob-brand-designare-experience-services",
+      tags: ["PRODUCT LAUNCH", "DESIGNARA™"],
+      slug: "dreamfox-develops-plumjob-brand-designara-experience-services",
 
       author: "DreamFox Team",
       date: "Nov 14, 2025",
-      image: "/images/DreamForce_Plumjob_designare.webp",
+      image: "/images/DreamForce_Plumjob_designara.webp",
       imageAlt: "PlumJob.com brand development",
       excerpt:
-        "DreamFox unveils PlumJob.com, a next-generation HRTech and Talent Experience platform designed for the modern technology workforce, built through Designare™ Experience Design practice.",
+        "DreamFox unveils PlumJob.com, a next-generation HRTech and Talent Experience platform designed for the modern technology workforce, built through Designara™ Experience Design practice.",
     },
     {
       id: 3,

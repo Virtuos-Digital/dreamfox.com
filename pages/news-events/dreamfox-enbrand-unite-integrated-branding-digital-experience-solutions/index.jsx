@@ -148,7 +148,7 @@ const NewsDetailPage = () => {
     
 <p>
 
-The collaboration will strengthen DreamFox’s position across AI Marketing, Designare™ Experience Design, Brand Strategy, and Content + Media Operations, providing a unified framework for innovation, agility, and measurable growth.
+The collaboration will strengthen DreamFox’s position across AI Marketing, Designara™ Experience Design, Brand Strategy, and Content + Media Operations, providing a unified framework for innovation, agility, and measurable growth.
 
 
 </p>
@@ -167,10 +167,10 @@ The collaboration will strengthen DreamFox’s position across AI Marketing, Des
     {
       id: 2,
       title:
-        "DreamFox Develops PlumJob.com Brand Through Its Designare™ Experience Services",
+        "DreamFox Develops PlumJob.com Brand Through Its Designara™ Experience Services",
       date: "November 14, 2025",
-      slug: "dreamfox-develops-plumjob-brand-designare-experience-services",
-      image: "/images/DreamForce_Plumjob_designare.webp",
+      slug: "dreamfox-develops-plumjob-brand-designara-experience-services",
+      image: "/images/DreamForce_Plumjob_designara.webp",
     },
     {
       id: 3,

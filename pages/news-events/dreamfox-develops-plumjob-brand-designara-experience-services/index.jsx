@@ -129,18 +129,18 @@ const NewsDetailPage = () => {
   const article = {
     id: 1,
     title:
-      "DreamFox Develops PlumJob.com Brand Through Its Designare™ Experience Services",
+      "DreamFox Develops PlumJob.com Brand Through Its Designara™ Experience Services",
     category: "Company News",
     tags: ["ACQUISITION", "GROWTH", "CREATIVE INTELLIGENCE"],
     author: "DreamFox Communications",
     date: "November 14, 2025",
     readTime: "4 min read",
-    image: "/images/DreamForce_Plumjob_designare.webp",
+    image: "/images/DreamForce_Plumjob_designara.webp",
 
     excerpt:
       "“Recruitment today is not just an art — it’s a science and increasingly, a culture-driven equation,” said a spokesperson for DreamFox. “PlumJob stands apart by transforming hiring into a humanized, data-informed journey.”",
     content: `
-    <p>DreamFox, the Digital + AI Marketing Agency, has unveiled its latest brand development initiative — PlumJob.com, a next-generation HRTech and Talent Experience platform designed for the modern technology workforce. Built through DreamFox’s Designare™ Experience Design practice, PlumJob redefines how companies and candidates connect in the era of intelligent recruiting.
+    <p>DreamFox, the Digital + AI Marketing Agency, has unveiled its latest brand development initiative — PlumJob.com, a next-generation HRTech and Talent Experience platform designed for the modern technology workforce. Built through DreamFox’s Designara™ Experience Design practice, PlumJob redefines how companies and candidates connect in the era of intelligent recruiting.
 </p>
     
     <p class="my-4">PlumJob.com is positioned as a refreshing alternative to dated and impersonal job portals such as Naukri or Monster. The platform focuses exclusively on “Plum Jobs” — roles that are desirable, purposeful, and rewarding. It leverages advanced experience design, behavioral intelligence, and data-driven matching to ensure that both employers and candidates experience meaningful engagement and efficient outcomes.

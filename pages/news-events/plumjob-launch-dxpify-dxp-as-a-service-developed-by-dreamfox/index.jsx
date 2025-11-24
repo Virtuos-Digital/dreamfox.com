@@ -138,9 +138,9 @@ const NewsDetailPage = () => {
     image: "/images/Dreamfox_dxify.webp",
 
     excerpt:
-      "DXPify represents the evolution of digital design and experience management,” said a spokesperson for DreamFox. “It brings together the creative depth of Designare™ and the technology rigor of AI-driven architecture—helping our clients build, launch, and optimize experiences faster than ever.",
+      "DXPify represents the evolution of digital design and experience management,” said a spokesperson for DreamFox. “It brings together the creative depth of Designara™ and the technology rigor of AI-driven architecture—helping our clients build, launch, and optimize experiences faster than ever.",
     content: `
-    <p>DreamFox, the Digital + AI Marketing Agency, through its Designare™ Business Unit, has announced the upcoming launch of Dxpify.com, a groundbreaking Digital Experience Platform (DXP-as-a-Service) that enables brands to rapidly design, deliver, and scale next-generation digital experiences.
+    <p>DreamFox, the Digital + AI Marketing Agency, through its Designara™ Business Unit, has announced the upcoming launch of Dxpify.com, a groundbreaking Digital Experience Platform (DXP-as-a-Service) that enables brands to rapidly design, deliver, and scale next-generation digital experiences.
 </p>
     
     <p class="my-4"Built on cutting-edge cloud, AI, and design technologies, Dxpify is engineered to address the growing demand for agile, modular, and intelligent digital platforms. As enterprises accelerate their digital transformation journeys, Dxpify aims to provide a single, flexible framework for UI/UX development, experience orchestration, branding, and content delivery—helping businesses stay ahead of the speed of change.
@@ -180,10 +180,10 @@ PlumJob, a portfolio company under VBrand, will integrate Dxpify into its recrui
     {
       id: 2,
       title:
-        "DreamFox Develops PlumJob.com Brand Through Its Designare™ Experience Services",
+        "DreamFox Develops PlumJob.com Brand Through Its Designara™ Experience Services",
       date: "November 14, 2025",
-      slug: "dreamfox-develops-plumjob-brand-designare-experience-services",
-      image: "/images/DreamForce_Plumjob_designare.webp",
+      slug: "dreamfox-develops-plumjob-brand-designara-experience-services",
+      image: "/images/DreamForce_Plumjob_designara.webp",
     },
   ];
 

@@ -20,29 +20,25 @@ const servicesData = [
     heading: "OutLaunch",
     description:
       "Engage your audience across all social platforms with compelling content and strategic campaigns.",
-      image: "/images/outlaunch_dreamfox.webp",
-
+    image: "/images/outlaunch_dreamfox.webp",
   },
   {
     number: "03",
-    heading: "Assimilation",
+    heading: "Assimilations",
     description:
       "Maximize your ROI with targeted pay-per-click campaigns that convert visitors into customers.",
-      image: "/images/assimilations_dreamfox.webp",
-
+    image: "/images/assimilations_dreamfox.webp",
   },
   {
     number: "04",
     heading: "Yippee Media",
     description:
       "Create valuable content that resonates with your audience and builds lasting brand connections.",
-      image: "/images/yippeemedia_dreamfox.webp",
-
+    image: "/images/yippeemedia_dreamfox.webp",
   },
 ];
 
 const ServicesSectionDigitalM = () => {
-  
   const containerRef = useRef(null);
   const textCardsRef = useRef([]);
   const imageCardsRef = useRef([]);
