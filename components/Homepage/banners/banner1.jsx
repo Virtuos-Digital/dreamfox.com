@@ -147,7 +147,7 @@ const Banner1 = () => {
               alt="Ring Icon"
               width={100}
               height={100}
-              className="inline-block size-[40px] sm:size-[66px] lg:size-[80px] 2xl:size-[100px] bg-[#000] rounded-full ml-2 absolute top-22 sm:-top-4 xs:top-16 xl:hidden 2xl:inline-block right-5 xs:right-10 sm:right-auto  -translate-x-16"
+              className="inline-block size-[40px] sm:size-[66px] lg:size-[80px] 2xl:size-[100px] bg-[#000] rounded-full ml-2 absolute top-22 sm:-top-4 xs:top-16  2xl:inline-block right-5 xs:right-10 sm:right-auto  -translate-x-16"
             />
             <span ref={dreamRef}>
               Dream in <br />

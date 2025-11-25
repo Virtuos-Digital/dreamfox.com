@@ -57,6 +57,7 @@ const ScrollSmootherWrapper = ({ children }) => {
         <div ref={contentRef} className="smooth-content">
           {children}
           <Footer />
+
         </div>
 
         <style jsx global>{`
@@ -85,6 +86,7 @@ const ScrollSmootherWrapper = ({ children }) => {
           }
         `}</style>
       </div>
+      
     </>
   );
 };
