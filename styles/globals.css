@@ -389,10 +389,14 @@ textarea,
 
 @media (min-width: 1324px) {
   .text-250 {
-    font-size: 220px;
+    font-size: 160px;
   }
 }
-
+@media (min-width: 1524px) {
+  .text-250 {
+    font-size: 200px;
+  }
+}
 @media (min-width: 2036px) {
   .text-250 {
     font-size: 250px;
