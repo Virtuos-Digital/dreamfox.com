@@ -16,7 +16,7 @@ import TextReveal from "@/components/Text Reveal/textreveal";
 import Link from "next/link";
 import ShareModal from "@/components/SocialShare/Sharemodal";
 import { useRouter } from "next/router";
-
+import Image from "next/image";
 const NewsDetailPage = () => {
   const headerRef = useRef(null);
   const heroRef = useRef(null);
@@ -256,7 +256,9 @@ As a portfolio company under VBrand, PlumJob has been strategically architected 
 
             {/* Hero Image */}
             <div className="relative lg:w-1/2 rounded-lg overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
-              <img
+              <Image
+                width={1000}
+                height={1000}
                 src={article.image}
                 alt={article.title}
                 className="w-full h-[400px] md:h-[500px] object-cover"
@@ -346,7 +348,9 @@ As a portfolio company under VBrand, PlumJob has been strategically architected 
                         className="group cursor-pointer "
                       >
                         <div className="flex gap-4">
-                          <img
+                          <Image
+                            width={1000}
+                            height={1000}
                             src={related.image}
                             alt={related.title}
                             className="w-20 h-20 object-cover rounded-xl bg-white/5 border border-white/10"

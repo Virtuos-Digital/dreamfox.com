@@ -8,14 +8,13 @@ import DreamFoxModel from "@/components/About/DreamFoxModel";
 // import SwiperSlider from "@/components/About/SwiperSlider";
 import CultureValuesSection2 from "@/components/About/CultureValuesSection2";
 import TeamSlider from "@/components/About/SwiperSlider";
-import Proud_Part from "@/components/About/Part";
 import VirtuosHero from "@/components/About/Part2";
 
 function Index() {
   return (
     <div>
       <BannerSection />
-      <VirtuosHero/>
+      <VirtuosHero />
       {/* <Proud_Part /> */}
       <StackingCards />
       <DreamFoxModel />

@@ -6,7 +6,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextReveal from "../Text Reveal/textreveal";
-
+import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const MissionVision = () => {
@@ -169,17 +169,23 @@ const MissionVision = () => {
               borderColor: "transparent",
             }}
           >
-            <img
+            <Image
+              width={100}
+              height={100}
               src="/images/About/our_mission1.webp"
               alt="Mission 1"
               className="w-full h-auto shadow-lg"
             />
-            <img
+            <Image
+              width={100}
+              height={100}
               src="/images/About/our_mission2.webp"
               alt="Mission 2"
               className="w-full h-auto shadow-lg"
             />
-            <img
+            <Image
+              width={200}
+              height={200}
               src="/images/About/our_mission3.webp"
               alt="Mission 3"
               className="col-span-2 w-full h-auto shadow-lg"
@@ -203,17 +209,23 @@ const MissionVision = () => {
               borderColor: "transparent",
             }}
           >
-            <img
+            <Image
+              width={100}
+              height={100}
               src="/images/About/our_vision1.webp"
               alt="Vision 1"
               className="w-full h-auto shadow-lg"
             />
-            <img
+            <Image
+              width={100}
+              height={100}
               src="/images/About/our_vision2.webp"
               alt="Vision 2"
               className="w-full h-auto shadow-lg"
             />
-            <img
+            <Image
+              width={200}
+              height={200}
               src="/images/About/our_vision3.webp"
               alt="Vision 3"
               className="col-span-2 w-full h-auto shadow-lg"

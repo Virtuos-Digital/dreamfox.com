@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextReveal from "../Text Reveal/textreveal";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -234,7 +235,9 @@ const ServicesSectionDigitalM = () => {
               >
                 <div className="w-full h-full  p-4 md:p-8  xl:mr-20">
                   <div className="w-full h-full rounded-3xl overflow-hidden">
-                    <img
+                    <Image
+                      width={1000}
+                      height={1000}
                       src={service.image}
                       alt={service.heading}
                       className="w-full h-full object-cover"
