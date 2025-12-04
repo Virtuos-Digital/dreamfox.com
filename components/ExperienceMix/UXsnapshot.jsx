@@ -188,7 +188,7 @@ const UXSnapshot = () => {
           {card.url ? (
             <Link
               href={card.url}
-              className="font-extralight cursor-pointer hover:scale-105 transition-all text-24 bg-white text-black px-6 py-3 rounded-lg shadow-lg hover:bg-white/60 mt-16  duration-300 z-20 xl:mt-12 sm:mt-0 md:mt-6"
+              className="font-semibold cursor-pointer hover:scale-105 transition-all text-24 bg-transparent text-white border-3 px-6 py-3 rounded-full shadow-lg hover:bg-white/60 mt-16  duration-300 z-20 xl:mt-12  sm:mt-0 md:mt-6"
             >
               View Case Study
             </Link>

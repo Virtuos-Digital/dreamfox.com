@@ -60,31 +60,7 @@ const ScrollSmootherWrapper = ({ children }) => {
 
         </div>
 
-        <style jsx global>{`
-          /* Essential styles for ScrollSmoother to work */
-          html,
-          body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100%;
-            background: #000;
-          }
-
-          .smooth-wrapper {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-          }
-
-          .smooth-content {
-            width: 100%;
-            min-height: 100vh;
-          }
-        `}</style>
+      
       </div>
       
     </>

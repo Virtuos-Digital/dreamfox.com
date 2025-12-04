@@ -185,7 +185,7 @@ const NewsroomPage = () => {
 
                 <Link
                   href={`/news-events/dreamfox-acquires-yippee-media`}
-                  className="text-[#e83584] hover:bg-transparent hover:border hover:text-white border-white bg-white sm:px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg group px-6"
+                  className="text-[#fff] hover:bg-transparent hover:border hover:text-white border-white border-3 sm:px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg group px-6"
                 >
                   Read More
                   <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
