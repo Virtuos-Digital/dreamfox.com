@@ -116,7 +116,7 @@ const Banner = () => {
       </Swiper>
 
       {/* Enhanced Custom Navigation */}
-      <div className="absolute -bottom-6 xl:bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-full flex justify-center">
+      <div className="absolute -bottom-6 lg:-bottom-10 3xl:bottom-8 left-1/2 transform -translate-x-1/2 z-50 w-full flex justify-center">
         <div className="flex items-center justify-center space-x-4 sm:space-x-8 bg-black/30 backdrop-blur-2xl border border-white/20 rounded-full px-4 sm:px-8 py-3 sm:py-4 shadow-2xl">
           {/* Previous Button */}
           <button
@@ -149,7 +149,7 @@ const Banner = () => {
             {slides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => goToSlide(index)}
+                // onClick={() => goToSlide(index)}
                 disabled={isAnimating}
                 className={`relative transition-all duration-500 transform hover:scale-125 ${
                   isAnimating ? "cursor-not-allowed" : "cursor-pointer"
@@ -209,59 +209,7 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Enhanced Slide Counter */}
-      {/* <div className="absolute top-8 right-8 z-50">
-        <div className="bg-black/30 backdrop-blur-2xl border border-white/20 rounded-2xl px-6 py-4 shadow-2xl">
-          <div className="flex items-center space-x-3">
-            <div className="text-right">
-              <div className="text-2xl font-bold text-[#D2448D]">
-                {String(currentSlide + 1).padStart(2, "0")}
-              </div>
-              <div className="text-xs text-white/60 font-medium uppercase tracking-wider">
-                Current
-              </div>
-            </div>
-            <div className="w-px h-8 bg-white/20" />
-            <div className="text-left">
-              <div className="text-lg text-white/80 font-semibold">
-                {String(slides.length).padStart(2, "0")}
-              </div>
-              <div className="text-xs text-white/60 font-medium uppercase tracking-wider">
-                Total
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Enhanced Progress Bar */}
-      {/* <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-40">
-        <div
-          className="h-full bg-gradient-to-r from-[#DC6263] via-[#D2448D] to-[#DC6263] transition-all duration-800 ease-out relative overflow-hidden"
-          style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
-        </div>
-      </div> */}
-
-      {/* Touch/Swipe Indicators */}
-      {/* <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-40 opacity-50">
-        <div className="flex flex-col items-center space-y-2 text-white/60">
-          <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-          </svg>
-          <span className="text-xs font-medium uppercase tracking-wider writing-mode-vertical">Swipe</span>
-        </div>
-      </div>
-
-      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-40 opacity-50">
-        <div className="flex flex-col items-center space-y-2 text-white/60">
-          <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-          <span className="text-xs font-medium uppercase tracking-wider writing-mode-vertical">Swipe</span>
-        </div>
-      </div> */}
+      
     </div>
   );
 };

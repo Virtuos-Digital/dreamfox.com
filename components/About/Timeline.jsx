@@ -159,7 +159,7 @@ const StackingCards = () => {
                   <div className="flex flex-col sm:flex-row h-full  overflow-hidden card-container-pink bg-black/10 backdrop-blur-2xl 0 rounded-4xl">
                     {/* Left */}
                     <div className="flex lg:w-1/2 flex-col gap-5 justify-start sm:pl-12 lg:pl-64 pr-24 sm:pr-4 p-10 sm:p-0 sm:pt-[68px] bg-black/10">
-                      <div className="hidden lg:block  text-250 absolute xl:-left-40 sm:top-20 lg:top-36 lg:-left-30 xl:top-40 3xl:top-48 -rotate-90 font-semibold text-gray-300/20">
+                      <div className="hidden lg:block  text-250 absolute xl:-left-20 xl:top-32  sm:top-20 lg:top-32 lg:-left-28 2xl:-left-32 3xl:-left-36 3xl:top-48 5xl:top-72 -rotate-90 font-semibold text-gray-300/20">
                         {card.year}
                       </div>
 

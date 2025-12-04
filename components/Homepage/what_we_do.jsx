@@ -195,7 +195,7 @@ const WhatWeDo = () => {
                 href={slide.link}
                 key={index}
                 ref={(el) => (cardRefs.current[index] = el)}
-                className="card w-full cursor-pointer h-[300px] xs:h-[400px] md:h-[450px] xl:h-[550px] 3xl:h-[660px] rounded-xl bg-gray-800 text-white absolute left-0 xs:top-1/2 top-1/3 -translate-y-1/2 shadow-2xl border border-white/20 p-6 flex flex-col"
+                className="card w-full cursor-pointer h-[300px] xs:h-[400px] md:h-[450px]  3xl:h-[660px] rounded-xl bg-gray-800 text-white absolute left-0 xs:top-1/2 top-1/3 -translate-y-1/2 shadow-2xl border border-white/20 p-6 flex flex-col"
                 style={{
                   zIndex: 10 + index,
                 }}

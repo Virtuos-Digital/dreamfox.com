@@ -151,10 +151,10 @@ const Banner3 = () => {
               height={100}
               className="inline-block size-[40px] sm:size-[66px] lg:size-[80px] 2xl:size-[100px] bg-[#000] rounded-full ml-2 absolute sm:-top-4 top-16 right-10 sm:right-auto  -translate-x-16"
             /> */}
-             <span className="block xl:hidden" ref={dreamRef3}>
+             <span className="block 2xl:hidden" ref={dreamRef3}>
             With data.
             </span>
-            <span className="hidden xl:block" ref={dreamRef3}>
+            <span className="hidden 2xl:block" ref={dreamRef3}>
             With data<br/> that’s alive.
             </span>
           </h1>

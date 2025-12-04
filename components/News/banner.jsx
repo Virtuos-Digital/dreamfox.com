@@ -148,18 +148,18 @@ const NewsroomPage = () => {
                     COMPANY NEWS
                   </span>
                 </div>
-                <TextReveal
+                <p
                   className="text-30 mt-4 sm:mt-10 font-light text-gray-50 mb-4 sm:mb-6 leading-tight hover:text-gray-100 transition-colors duration-300"
-                  animation="rotateX"
-                  stagger={0.1}
-                  delay={1}
-                  duration={0.5}
+                  // animation="rotateX"
+                  // stagger={0.1}
+                  // delay={0.1}
+                  // duration={0.5}
                 >
                   {/* <h2 c> */}
                   DreamFox Acquires Yippee Media — Expanding the Creative
                   Intelligence Frontier
                   {/* </h2> */}
-                </TextReveal>
+                </p>
                 <p className="text-white line-clamp-3 text-16 mb-6 leading-relaxed">
                   DreamFox, the Digital + AI Marketing Agency, today announced
                   the successful acquisition of Yippee Media, a fast-rising
@@ -185,7 +185,7 @@ const NewsroomPage = () => {
 
                 <Link
                   href={`/news-events/dreamfox-acquires-yippee-media`}
-                  className="text-[#e83584] hover:bg-transparent hover:border hover:text-white border-white bg-white sm:px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg group px-6"
+                  className="text-[#fff] hover:bg-transparent hover:border hover:text-white border-white border-3 sm:px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg group px-6"
                 >
                   Read More
                   <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">

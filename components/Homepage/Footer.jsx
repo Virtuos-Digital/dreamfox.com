@@ -188,17 +188,6 @@ const Footer = () => {
       <div className="container">
         <div className=" mx-auto sm:px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
           {/* Left Nav */}
-          {/* <div className="flex flex-col space-y-4 text-30">
-          {['Home', 'Services', 'About', 'Projects', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className=" text-white group"
-            >
-              <span className="link-underline">{item}</span>
-            </a>
-          ))}
-        </div> */}
           <div className="flex flex-col space-y-4 text-30">
             <h3 className="uppercase tracking-widest font-bold text-gray-500 text-40 mb-6 ">
               Menu
@@ -209,18 +198,29 @@ const Footer = () => {
               { name: "About", href: "/about" },
               { name: "Portfolio", href: "/work-portfolio" },
               { name: "Contact", href: "/contactus" },
-            ].map(({ name, href }) => (
-              <Link
-                key={name}
-                href={href}
-                className="text-white group w-fit uppercase"
-              >
-                <span className="link-underline">{name}</span>
-              </Link>
-            ))}
+            ].map(({ name, href }) => {
+              if (name === "Home") {
+                return (
+                  <a
+                    key={name}
+                    href={href}
+                    className="text-white group w-fit uppercase"
+                  >
+                    <span className="link-underline">{name}</span>
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={name}
+                  href={href}
+                  className="text-white group w-fit uppercase"
+                >
+                  <span className="link-underline">{name}</span>
+                </Link>
+              );
+            })}
           </div>
-
-          {/* Middle Links */}
           <div className="flex flex-col space-y-4 text-20">
             <h3 className="uppercase tracking-widest font-bold text-gray-500 text-40 mb-6 ">
               Socials
@@ -258,7 +258,7 @@ const Footer = () => {
             <h3 className="uppercase tracking-widest font-bold text-gray-500 text-40 mb-6 ">
               Connect
             </h3>
-            <button className="group cursor-pointer flex items-center bg-gray-200 text-black rounded-full overflow-hidden max-w-[230px] sm:max-w-[280px] transition-all hover:scale-105 transition-all">
+            <Link href={"/contactus"} className="group cursor-pointer flex items-center bg-gray-200 text-black rounded-full overflow-hidden max-w-[230px] sm:max-w-[280px] transition-all hover:scale-105 transition-all">
               <span className="pl-4 sm:px-4 uppercase font-sm py-2 w-full text-24 bg-transparent text-left">
                 Get Started
               </span>
@@ -271,7 +271,7 @@ const Footer = () => {
                 {/* Incoming arrow (enters from bottom-left) */}
                 <ArrowRightIcon className="absolute h-5 w-5 text-white -rotate-45 opacity-0 transition-all duration-500 ease-out delay-100 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 -translate-x-4 translate-y-4" />
               </div>
-            </button>
+            </Link>
           </div>
         </div>
         {/* <div className="py-8 border-t border-b border-gray-700 mt-8">
