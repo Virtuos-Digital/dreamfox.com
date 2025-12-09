@@ -27,10 +27,29 @@ const ScrollSmootherWrapper = dynamic(
   }
 );
 
+const PWAInstallPrompt = dynamic(
+  () => import("@/components/PWA/PWAInstallPrompt"),
+  {
+    ssr: false,
+  }
+);
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   
   useEffect(() => {
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+
     const handleRouteChangeStart = () => {
       // Kill all GSAP animations and ScrollTriggers on route change
       gsap.killTweensOf("*");
@@ -95,6 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <WebGLCursorEffect />
       <SEOHead />
+      <PWAInstallPrompt />
       {/* <SmoothScroll> */}
       <ApolloProvider client={client}>
         <ScrollSmootherWrapper>
