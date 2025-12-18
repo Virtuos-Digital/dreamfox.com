@@ -114,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <WebGLCursorEffect />
       <SEOHead />
-      <PWAInstallPrompt />
+      {/* <PWAInstallPrompt /> */}
       {/* <SmoothScroll> */}
       <ApolloProvider client={client}>
         <ScrollSmootherWrapper>
