@@ -68,7 +68,7 @@ const seoData = {
       "Meet the DreamFox team driving AI innovation, digital strategy, and creative excellence. Discover the experts behind world-class products and transformative solutions.",
     image: "https://dreamfox.com/og-images/team.jpg",
   },
-  "/about/careers": {
+  "/careers": {
     title: "Careers at DreamFox | Build Your Future in Tech & Design",
     description:
       "Join DreamFox and shape the future of AI, design, and digital innovation. Explore open roles in creative, marketing, UX, and tech to build an impactful career.",

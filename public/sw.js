@@ -1,1 +1,1815 @@
-if(!self.define){let e,a={};const s=(s,i)=>(s=new URL(s+".js",i).href,a[s]||new Promise(a=>{if("document"in self){const e=document.createElement("script");e.src=s,e.onload=a,document.head.appendChild(e)}else e=s,importScripts(s),a()}).then(()=>{let e=a[s];if(!e)throw new Error(`Module ${s} didn’t register its module`);return e}));self.define=(i,c)=>{const r=e||("document"in self?document.currentScript.src:"")||location.href;if(a[r])return;let d={};const b=e=>s(e,r),o={module:{uri:r},exports:d,require:b};a[r]=Promise.all(i.map(e=>o[e]||b(e))).then(e=>(c(...e),d))}}define(["./workbox-4754cb34"],function(e){"use strict";importScripts(),self.addEventListener("message",e=>{e.data&&"SKIP_WAITING"===e.data.type&&self.skipWaiting()}),e.clientsClaim(),e.precacheAndRoute([{url:"/_next/dynamic-css-manifest.json",revision:"d751713988987e9331980363e24189ce"},{url:"/_next/static/chunks/0465ed09-576b39edb42ddf6d.js",revision:"576b39edb42ddf6d"},{url:"/_next/static/chunks/1358-1dff2382cc4fea2b.js",revision:"1dff2382cc4fea2b"},{url:"/_next/static/chunks/1451-5aac271e1039b35d.js",revision:"5aac271e1039b35d"},{url:"/_next/static/chunks/1866-9c49266b9fe9a782.js",revision:"9c49266b9fe9a782"},{url:"/_next/static/chunks/2e6f1b4f.e2a41875005fc0f4.js",revision:"e2a41875005fc0f4"},{url:"/_next/static/chunks/3556.f39b0c02690cd34f.js",revision:"f39b0c02690cd34f"},{url:"/_next/static/chunks/3843-3ef70876d6048736.js",revision:"3ef70876d6048736"},{url:"/_next/static/chunks/4122-bb1fcc5fc8fa66cf.js",revision:"bb1fcc5fc8fa66cf"},{url:"/_next/static/chunks/4399-11ef615fa4f18d70.js",revision:"11ef615fa4f18d70"},{url:"/_next/static/chunks/454e6ae6.d9ecd42e7dcd3d55.js",revision:"d9ecd42e7dcd3d55"},{url:"/_next/static/chunks/4587-489c5c609c5130c3.js",revision:"489c5c609c5130c3"},{url:"/_next/static/chunks/5193.0997ecf9536379de.js",revision:"0997ecf9536379de"},{url:"/_next/static/chunks/556-f119b82e0223a3ba.js",revision:"f119b82e0223a3ba"},{url:"/_next/static/chunks/5921-0852ea32861d76e7.js",revision:"0852ea32861d76e7"},{url:"/_next/static/chunks/6424-8da8683720f97b2b.js",revision:"8da8683720f97b2b"},{url:"/_next/static/chunks/7101-2e7f454250063d4c.js",revision:"2e7f454250063d4c"},{url:"/_next/static/chunks/7137.5b827eb0d7e8aef2.js",revision:"5b827eb0d7e8aef2"},{url:"/_next/static/chunks/7862-45e2fc0da5c985ac.js",revision:"45e2fc0da5c985ac"},{url:"/_next/static/chunks/7912-dcc7b4faf0d4219d.js",revision:"dcc7b4faf0d4219d"},{url:"/_next/static/chunks/8230-c16552413f0c6daa.js",revision:"c16552413f0c6daa"},{url:"/_next/static/chunks/8284-c0a7e92f048dc998.js",revision:"c0a7e92f048dc998"},{url:"/_next/static/chunks/8301.388487dbc197a606.js",revision:"388487dbc197a606"},{url:"/_next/static/chunks/942-96b28775d5c52467.js",revision:"96b28775d5c52467"},{url:"/_next/static/chunks/framework-e54b663a2888b5de.js",revision:"e54b663a2888b5de"},{url:"/_next/static/chunks/main-f93bbf14ef644a4d.js",revision:"f93bbf14ef644a4d"},{url:"/_next/static/chunks/pages/_app-de70cfd4cc6833f5.js",revision:"de70cfd4cc6833f5"},{url:"/_next/static/chunks/pages/_error-eefed38d469aef0c.js",revision:"eefed38d469aef0c"},{url:"/_next/static/chunks/pages/about-149d836f425f886d.js",revision:"149d836f425f886d"},{url:"/_next/static/chunks/pages/about/alliances-cd57636e9369c195.js",revision:"cd57636e9369c195"},{url:"/_next/static/chunks/pages/about/careers-6e5d6d85583255e2.js",revision:"6e5d6d85583255e2"},{url:"/_next/static/chunks/pages/about/team-a1027c3cfb80d6da.js",revision:"a1027c3cfb80d6da"},{url:"/_next/static/chunks/pages/contactus-71b639c46350d37e.js",revision:"71b639c46350d37e"},{url:"/_next/static/chunks/pages/cookie-policy-a7d09c959a9a5053.js",revision:"a7d09c959a9a5053"},{url:"/_next/static/chunks/pages/disclaimer-1e2b4cc653f8b035.js",revision:"1e2b4cc653f8b035"},{url:"/_next/static/chunks/pages/gdpr-policy-0af61c4afbe22383.js",revision:"0af61c4afbe22383"},{url:"/_next/static/chunks/pages/index-d77613cd254f2c37.js",revision:"d77613cd254f2c37"},{url:"/_next/static/chunks/pages/news-events-242bc51ed0ab2197.js",revision:"242bc51ed0ab2197"},{url:"/_next/static/chunks/pages/news-events/dreamfox-acquires-yippee-media-2cc11423c412c710.js",revision:"2cc11423c412c710"},{url:"/_next/static/chunks/pages/news-events/dreamfox-develops-plumjob-brand-designara-experience-services-2437be2e2aa2a0b3.js",revision:"2437be2e2aa2a0b3"},{url:"/_next/static/chunks/pages/news-events/dreamfox-enbrand-unite-integrated-branding-digital-experience-solutions-2f0131db24a11db7.js",revision:"2f0131db24a11db7"},{url:"/_next/static/chunks/pages/news-events/plumjob-launch-dxpify-dxp-as-a-service-developed-by-dreamfox-1303ba4570e16d40.js",revision:"1303ba4570e16d40"},{url:"/_next/static/chunks/pages/privacy-policy-1b7f398051a7ecf0.js",revision:"1b7f398051a7ecf0"},{url:"/_next/static/chunks/pages/safe-harbour-policy-fad8a3076bdb95a7.js",revision:"fad8a3076bdb95a7"},{url:"/_next/static/chunks/pages/services-c352a045a0de92eb.js",revision:"c352a045a0de92eb"},{url:"/_next/static/chunks/pages/services/brand-advisory-a9282cc77fa8e8a4.js",revision:"a9282cc77fa8e8a4"},{url:"/_next/static/chunks/pages/services/brand-advisory/plumjob-40a419e1d69dbcf5.js",revision:"40a419e1d69dbcf5"},{url:"/_next/static/chunks/pages/services/design-studio-b88a160c30e2977e.js",revision:"b88a160c30e2977e"},{url:"/_next/static/chunks/pages/services/digital-marketing-f87beadc229b1f81.js",revision:"f87beadc229b1f81"},{url:"/_next/static/chunks/pages/services/digital-media-mix-18538300f655f080.js",revision:"18538300f655f080"},{url:"/_next/static/chunks/pages/terms-of-use-a83882272d1fb433.js",revision:"a83882272d1fb433"},{url:"/_next/static/chunks/pages/work-portfolio-d67627837e3b0361.js",revision:"d67627837e3b0361"},{url:"/_next/static/chunks/pages/work-portfolio/better-buy-club-case-study-64435d705f1a57b7.js",revision:"64435d705f1a57b7"},{url:"/_next/static/chunks/pages/work-portfolio/giftcart-case-study-ecd06ed142ef7ce5.js",revision:"ecd06ed142ef7ce5"},{url:"/_next/static/chunks/pages/work-portfolio/indic-case-study-782682829fcd691d.js",revision:"782682829fcd691d"},{url:"/_next/static/chunks/pages/work-portfolio/plumjob-case-study-abbed480beed4374.js",revision:"abbed480beed4374"},{url:"/_next/static/chunks/pages/work-portfolio/sweven-case-study-bdc2ef1ee2b1528a.js",revision:"bdc2ef1ee2b1528a"},{url:"/_next/static/chunks/pages/work-portfolio/tekcorp-case-study-709ec150d2c4ec41.js",revision:"709ec150d2c4ec41"},{url:"/_next/static/chunks/pages/work-portfolio/vdc-case-study-27b9c90d0021d6af.js",revision:"27b9c90d0021d6af"},{url:"/_next/static/chunks/pages/work-portfolio/vsys-case-study-e0c79a26cd80525a.js",revision:"e0c79a26cd80525a"},{url:"/_next/static/chunks/polyfills-42372ed130431b0a.js",revision:"846118c33b2c0e922d7b3a7676f81f6f"},{url:"/_next/static/chunks/webpack-adb51f9c2abe348a.js",revision:"adb51f9c2abe348a"},{url:"/_next/static/css/16466131d8ae5843.css",revision:"16466131d8ae5843"},{url:"/_next/static/css/3cd83cfe34ca397f.css",revision:"3cd83cfe34ca397f"},{url:"/_next/static/css/4654c4865824bba0.css",revision:"4654c4865824bba0"},{url:"/_next/static/css/571e5d9351af61fa.css",revision:"571e5d9351af61fa"},{url:"/_next/static/css/aa04cf9059ddede3.css",revision:"aa04cf9059ddede3"},{url:"/_next/static/yR9QEHRi9sAv4ehoa7FpN/_buildManifest.js",revision:"af4920d45d62dde601d90815c298fc93"},{url:"/_next/static/yR9QEHRi9sAv4ehoa7FpN/_ssgManifest.js",revision:"b6652df95db52feb4daf4eca35380933"},{url:"/casestudy/LinkedIn_Shreyank.png",revision:"1c2d4a97ef32ac673009abe89d694018"},{url:"/casestudy/about_apeejay_education.webp",revision:"5b5e6a979fd428bd6285d6106952a58e"},{url:"/casestudy/about_barq.webp",revision:"c5729a34931a1e2d7699d80beae7d36e"},{url:"/casestudy/about_leading_hotel_booking_processor.webp",revision:"1edb549de87e4e08fb6d23fcc3b73e48"},{url:"/casestudy/about_manufacturing_industry_giant.webp",revision:"c491aba4614fb8b8560e79d0a957fa0e"},{url:"/casestudy/about_satellite_space_company.webp",revision:"99678c05b26452d409115317703865e4"},{url:"/casestudy/about_securitas.webp",revision:"3b213f3a22ef03a334de411e80d3d1a7"},{url:"/casestudy/about_standard_chartered_bank.webp",revision:"c4378f45c0c9326cdf650d8cd1827e5d"},{url:"/casestudy/about_the_leading_brewery_company.webp",revision:"c2b08b1214fa82c62eecef389b268e71"},{url:"/casestudy/about_the_space_ops_insights_company.webp",revision:"6b1d3d89208950a5a4d54bf8cdd6404e"},{url:"/casestudy/about_thomas_cook_india.webp",revision:"d59bfd025a1942f49f01f28244288248"},{url:"/casestudy/about_virtuos_digital.webp",revision:"1e5e470e692bc950c4c23174960950de"},{url:"/casestudy/ams_profile.webp",revision:"7f4f752f8c64927a5cdbdfc6c27acb9f"},{url:"/casestudy/apeejay_group_automates_student_experience.webp",revision:"03e1d7391bbb7120ca14a227477a650f"},{url:"/casestudy/asana_worksuite_implementation.webp",revision:"60df2c3c9c4431e49be3c8882a3be6c7"},{url:"/casestudy/barq_fintech_company_implements.webp",revision:"3d52d10d0c7914025299727bd2b5462b"},{url:"/casestudy/barq_section_video.mp4",revision:"7e9f449e2c0a6e41c608235abfefee04"},{url:"/casestudy/challenges_before_agiloft_clm.webp",revision:"4fb17ab0ec5f4d19f18826785d5de6c8"},{url:"/casestudy/clp_logo.svg",revision:"63c890b57100c2c80d8671c567804769"},{url:"/casestudy/clp_modernizes_stakeholder_management.webp",revision:"d5001e52274fac9f46ab3612806fff10"},{url:"/casestudy/design_thinking_in_action.webp",revision:"63ceaf32f9a5229538942ae1587b0b93"},{url:"/casestudy/differentiation_and_value_proposition.webp",revision:"7ee5130341dbf04b38d8dd6f2f0c18c0"},{url:"/casestudy/empowering_indias_financial_aspirations.webp",revision:"f0b7caa4a4b547441ff116975c4d8262"},{url:"/casestudy/enter_cxdesk.webp",revision:"4e302cd2ebd3cf02843b24bc15d1c7d0"},{url:"/casestudy/from_rightnow_to_fusion.webp",revision:"bb34f13d75d8ec86890c728343793cfd"},{url:"/casestudy/hdfc_life_digitizes_quote_management.webp",revision:"59f971d613c5247c51f7a16417e91525"},{url:"/casestudy/icons/amendments.svg",revision:"709d5e2def953d125662e82342806153"},{url:"/casestudy/icons/approvals.svg",revision:"30dc2a8f9cc8c9ad0f51c414ac681e2a"},{url:"/casestudy/icons/complex_project_tracking.svg",revision:"4c0c606c31e693da21f283004506b4de"},{url:"/casestudy/icons/disconnected_platforms.svg",revision:"d52b142f4cd2cce1a3f66f073a250954"},{url:"/casestudy/icons/fragmented_visibility.svg",revision:"0d0c4af45de6e64b9b1e5baa6588fda4"},{url:"/casestudy/icons/integration_issues.svg",revision:"7e98fe3b0e3843f93b5b5a26dad9e146"},{url:"/casestudy/icons/integrations.svg",revision:"d52277dfed05b930115022ba9597592e"},{url:"/casestudy/icons/lack_of_visibility.svg",revision:"01f4ec7cb667fd9f4c238ae8b6912c33"},{url:"/casestudy/icons/legacy_system.svg",revision:"9249c635eddbd1902542022f86a5388c"},{url:"/casestudy/icons/limited_flexibility.svg",revision:"961d2c471c42d08a56dc4d205820ac2c"},{url:"/casestudy/icons/limited_visibilities.svg",revision:"bc3a76c334db3199eb2cefbf2f0d2a0b"},{url:"/casestudy/icons/manual_approval.svg",revision:"c235a6203e92c9f785d1bc258ac0d689"},{url:"/casestudy/icons/manual_reporting.svg",revision:"70dbe97b15a37e7bb30a5e83d423f9fb"},{url:"/casestudy/icons/manual_status.svg",revision:"9e808e27f43179d03055a86948fdd18e"},{url:"/casestudy/icons/poor_collaboration.svg",revision:"ed462c4b4646c9b9224c2463bb16844b"},{url:"/casestudy/icons/process_bottleneck.svg",revision:"fa1758566b27b1085a9aaff9af0f0d9e"},{url:"/casestudy/icons/real_time_dashboard.svg",revision:"c948aacc787d6f55af9cc12c33e15c72"},{url:"/casestudy/icons/real_time_insights.svg",revision:"da7bf1c35eff3b33c08530b28198983f"},{url:"/casestudy/icons/risk_mnanagement.svg",revision:"1e0c0e2af2c952fdb929e7fcbad50fb2"},{url:"/casestudy/icons/scalability_concers.svg",revision:"2ba573021f1bba278e9191640ed0118d"},{url:"/casestudy/icons/scaling_difficulties.svg",revision:"c1995d8816c36beca1cd7871b7ff6ec3"},{url:"/casestudy/icons/sioled_development.svg",revision:"d52b142f4cd2cce1a3f66f073a250954"},{url:"/casestudy/icons/soiled_workflow.svg",revision:"4989222aa699f52506f847b6d59ceca0"},{url:"/casestudy/implementing_asana_worksuite_with_virtuos_digital.webp",revision:"5277d3efc355ac3ae998618c8f42e6cb"},{url:"/casestudy/implementing_creatio_with_virtuos_digital.webp",revision:"98dc1c188bdc49e162e1a53173a6bc63"},{url:"/casestudy/implementing_smartsheet_with_vdc.webp",revision:"1f1438b516c2755c1a43b10e84b4342a"},{url:"/casestudy/kgisl.webp",revision:"44290b359cee58fc065bb6580309f5e0"},{url:"/casestudy/kgisl_video.mp4",revision:"ea6e677dcd081c3028fa3e857ee4facc"},{url:"/casestudy/kgisl_white_logo.svg",revision:"a2ff786256f35f2044e8769fc6bb9bcb"},{url:"/casestudy/kgsil_streamlines_contract_management_with_agiloft.webp",revision:"42a0067484baa783a6299095c2543bd5"},{url:"/casestudy/last_section_image.webp",revision:"ad1dbd7632b18896655faa46927be23c"},{url:"/casestudy/leading_brewery_company.webp",revision:"91e96d8006c0cebd09911e31e9c15b4f"},{url:"/casestudy/leading_hotel_booking_processor.webp",revision:"07bdbd3ba95e8b623110c3a9bb3e1ad5"},{url:"/casestudy/logos/360_degrees.svg",revision:"1507f50c8a1be63227ee30854ee50e5e"},{url:"/casestudy/logos/No_intelligence.svg",revision:"acf522809136b2c128708ee137815858"},{url:"/casestudy/logos/barq.svg",revision:"3b82aba0a6e90fcd4db8fe11774f62fb"},{url:"/casestudy/logos/barq_black.svg",revision:"ce619ca3d7d0b7c1fb5a0134af74dd0e"},{url:"/casestudy/logos/customer_experience_cap.svg",revision:"2ec1c95bb90f94d509c3a885ab844a70"},{url:"/casestudy/logos/fragmented_response_ecosystem.svg",revision:"0b703c697b0371f8feb6a37ffc7ca8db"},{url:"/casestudy/logos/fragmented_task_management.svg",revision:"004d549a45b688245a3f6c2ea64b3e44"},{url:"/casestudy/logos/fragmented_tracking.svg",revision:"fcf9b773a86986e1e0b837966925c738"},{url:"/casestudy/logos/fragmentic_interface.svg",revision:"0d13ad0112ea6c6ecf30a7db58b9256c"},{url:"/casestudy/logos/inefficient_workflow.svg",revision:"a6110226c54e700226a5d0a15bc07168"},{url:"/casestudy/logos/lack_of_centralized_cx.svg",revision:"1764cb02abcdc9605e70330ad11c6e17"},{url:"/casestudy/logos/lack_of_real_time_status.svg",revision:"25ea2ff08d00a0d03df10c7d30867485"},{url:"/casestudy/logos/limited_visibilities.svg",revision:"9f394220f80f0c21dd4794881902aaa0"},{url:"/casestudy/logos/mannual_process.svg",revision:"3c87cffdeaef97f84e9187c9b13a9943"},{url:"/casestudy/logos/manual_reporting_bottlenecks.svg",revision:"d00919de4da364ba3f2e6c9ea82d3ae2"},{url:"/casestudy/logos/missed_deadlines.svg",revision:"b80b37cd3d5ebc8773fab3db227633a9"},{url:"/casestudy/logos/no_unified_platform.svg",revision:"1df1eeb17475a42cb0860f7ac94952e8"},{url:"/casestudy/logos/operational_inefficiencies.svg",revision:"bc78e184b7ef2b514926c23b28042588"},{url:"/casestudy/logos/rigid_functionality.svg",revision:"b248df357193a76a0a5230b9f5887eb5"},{url:"/casestudy/logos/self_service_capabilities.svg",revision:"ca7adb99ef3ad42cf5a3350571fdf55a"},{url:"/casestudy/logos/thomascookindia.svg",revision:"365be25372ca2ed8fa0bbf48984cb274"},{url:"/casestudy/logos/version_confusion.svg",revision:"d882a2815f95a76c3ecc1dcbebeb500d"},{url:"/casestudy/manufacturing_industry_giant_implements.webp",revision:"28b65df09ecbaccef164f985bd7a46e9"},{url:"/casestudy/mig_asana.svg",revision:"9af7b3ea051ad59763310a6fc642c3b3"},{url:"/casestudy/no_code_student_experience_platform.webp",revision:"4f4dad954a300f85bff38efafd0c82fd"},{url:"/casestudy/oracle_fusion_cx_implemented.webp",revision:"961fd797abf223ac1b86b6b1b9620dee"},{url:"/casestudy/oracle_video.mp4",revision:"ad32fde6ea8f2b5a38d977ac014aa45b"},{url:"/casestudy/pickme_accelerates_customer_experience.webp",revision:"a22d77e940b3454cbaf210c866006205"},{url:"/casestudy/pickme_banner.webp",revision:"d1daba65a38a38d583292083d7b60056"},{url:"/casestudy/plumjob1.svg",revision:"a40174ee6ab1aa6e8e94a8fd2a4604ab"},{url:"/casestudy/plumjob2.svg",revision:"ceb941f71ead676a337a919e00841e90"},{url:"/casestudy/project_highlights.webp",revision:"99662dc9d22e16a3d1e5705ae50dbe83"},{url:"/casestudy/quote_management_process.svg",revision:"13edd0e680e89a8be1d23f9376f84709"},{url:"/casestudy/right_side_image.webp",revision:"d42a37175a75ff100aa6259b7e091853"},{url:"/casestudy/satellite_space_company_launches_smartsheet.webp",revision:"d9215e727018c2c498a80b3bdc70b2ab"},{url:"/casestudy/securitas_implements_contract_intelligence.webp",revision:"ffff4f71a0453578cd63448e3f7990c3"},{url:"/casestudy/smartsheet_insights.mp4",revision:"c054d06e9ad952b7ef74dfffd9ab14e6"},{url:"/casestudy/space_ops_insights_company_integrates_smartsheet.webp",revision:"c4bc97c6d5e25c1f139c92898e25c459"},{url:"/casestudy/standard_chartered_advances_email_automation_journey.webp",revision:"4ad007a3ded1e0dd325a2f6e49eeac1d"},{url:"/casestudy/the_journey_from_oracle_cx_to_cxdesk.webp",revision:"d945c0482406f79b046d2e0fb1de1b12"},{url:"/casestudy/the_need_for_a_seamless_student_experience.webp",revision:"c17aaa3be36bf20eff28d1de3a4b71e7"},{url:"/casestudy/the_virtuos_edge.webp",revision:"0fa4bc1c3aa9142a32fa9de4b76e44bd"},{url:"/casestudy/thomas_cook_india_creates_experience_business_with_cxdesk.webp",revision:"4dde6ddb25fa289cd2d4998aa401a513"},{url:"/casestudy/transforming_contract_management_with_agiloft_clm.webp",revision:"5238671dcf2cf8b4a439c450c1d3edb9"},{url:"/casestudy/tvs_credit_fuels_customer_delight.webp",revision:"b5d6a46a284ab006dcd937cd34de414c"},{url:"/casestudy/vdc_creatio_logo.svg",revision:"00665bb885f0a1d863767fe2e0a6b8c8"},{url:"/casestudy/virtuos_edge.webp",revision:"f6ea34a0899092548095460a74b62382"},{url:"/casestudy/virtuos_edge_&_approach.webp",revision:"96452a969cce14c6b9a23d686de75bb2"},{url:"/casestudy/why_standard_chartered.webp",revision:"b7e8b4ccfc80b72b8ecc5152a7273027"},{url:"/casestudy/why_virtuos_and_asana_as_a_solution.webp",revision:"acd038a98ce386a5d643dc3c978004dd"},{url:"/casestudy/why_virtuos_and_smartsheet.webp",revision:"34d033dfe37928ed10bc4ef961596dce"},{url:"/casestudy/why_virtuos_and_smartsheet_as_a_solution.webp",revision:"a567627685910988f99b649c2b295142"},{url:"/dreamfox_logo.png",revision:"b5b311e474348ddeac1cccb141f3586c"},{url:"/dreamfox_logo.svg",revision:"7f94f710b52f6f3e421a44829348f119"},{url:"/favicon.ico",revision:"cd6f7099a3ece4dbe0295d91ba706117"},{url:"/icons/cursor-hover.svg",revision:"1245e79e8e50f1fc577e26057b6b9663"},{url:"/icons/cursor.svg",revision:"6e9eb6afdee76f2b2d2dc051eab4ca71"},{url:"/icons/dreamfox_emblem.svg",revision:"e3b0472634fae70b40b73060c47bcb9c"},{url:"/icons/ring.svg",revision:"3945f939f7bf3773a71302e17af66d6b"},{url:"/images/1307355.jpg",revision:"ef4f051fb5ab62018e7e96f3833f701b"},{url:"/images/645364.jpg",revision:"d189ba427cb5d01bfd30e7e020fafa2c"},{url:"/images/About/1.png",revision:"e2fd3b581da71f2d15f70fa9626bc2bb"},{url:"/images/About/2.png",revision:"9007e29cca3ec9c5c34b171854d1e884"},{url:"/images/About/3.png",revision:"bb61ac9c28c891d9f3b3f05ff44a304f"},{url:"/images/About/4.png",revision:"a5c57d3fbad0dcb39faffaad724cac70"},{url:"/images/About/5.png",revision:"7af81e3bb8d8c0daccc8bd9dab9a2ee9"},{url:"/images/About/App.svg",revision:"8d009b0a21e3282ee7434edbc5caf259"},{url:"/images/About/Brand_Design.svg",revision:"8aea7131a60f497130f005957730640d"},{url:"/images/About/Brand_Manager.webp",revision:"f69b002ce7317545d52853d1961e65b5"},{url:"/images/About/Content_Strategy.svg",revision:"11c13285a4c7eadcf1ac487222f6cd2d"},{url:"/images/About/Customer_Success_Manager.webp",revision:"763d31f9bc9c524f323423f7aa7971fc"},{url:"/images/About/Demandgen_Executive.webp",revision:"ee2386b462b8f62883b08466bfe4f5ae"},{url:"/images/About/Design_Consulting.svg",revision:"490f05a92f1bb4d6a872603ff6ad4fbd"},{url:"/images/About/Digital_Marketing_Head.webp",revision:"21288826e021406ecd993f86f0ce71b9"},{url:"/images/About/Hashim_Marazi.png",revision:"ac042352b485b21e46f03f66762f9260"},{url:"/images/About/SEO_SMO_Executive.webp",revision:"74c93cb7ec48b0d3fe232e67587e60b7"},{url:"/images/About/UX.svg",revision:"0bfbe50ee87d678a8d5214713d9432a7"},{url:"/images/About/abdul.webp",revision:"0cc0b97380370e86464eda51cb7304ca"},{url:"/images/About/aditya.webp",revision:"99b792c70c11e106ef163455ea5c6869"},{url:"/images/About/ams.webp",revision:"ce7c4e64525ed0c66a2fca0221a988a1"},{url:"/images/About/everfox.png",revision:"4e03cf84a4b24c096770525852ed43db"},{url:"/images/About/hemant_tyagi.webp",revision:"bd0004baf2de86d6fb632e8bc0c4386d"},{url:"/images/About/our_mission1.webp",revision:"ec392795b6122a8e8e52b87e35186907"},{url:"/images/About/our_mission2.webp",revision:"67dea180c39ae44b2af4c54eb541733d"},{url:"/images/About/our_mission3.webp",revision:"2df92ba5bc7c689de954ec50a4ffcddf"},{url:"/images/About/our_vision1.webp",revision:"8574a8f3b4c83f99acf848fbd5e361a3"},{url:"/images/About/our_vision2.webp",revision:"0121bda3b9f460d1ecb033e8a2fa1e53"},{url:"/images/About/our_vision3.webp",revision:"86f116b883c3537c51763c4de0c1a6a9"},{url:"/images/About/samriddhi.webp",revision:"26842cf9edde6d3559ed6c0d5f5a8c91"},{url:"/images/About/sc_bg.png",revision:"26e517122151836c9d6d9c15876ffcad"},{url:"/images/About/shaloo_reddi.webp",revision:"1fb9bf5843e2811446d0ac6b527556a3"},{url:"/images/About/shivam_chawl.webp",revision:"a0a3aa9e8c7da92b7d96a0a344f7109a"},{url:"/images/About/shivam_chawla.jpg",revision:"150ac9f3de99f0409f493a618835c8aa"},{url:"/images/About/shivam_rajotiya-removebg.png",revision:"c73bd804171d69ba359183714530055d"},{url:"/images/About/shivam_rajotiya.webp",revision:"7e3e0575ae23c1b502e8355144810ab1"},{url:"/images/About/siddhant.webp",revision:"af875c7379a1ef7ff2f5723a37ec6043"},{url:"/images/About/sukriti.webp",revision:"2c8a1d2abee5335752269530af3febcf"},{url:"/images/About/tina_sachdeva-removebg-preview.png",revision:"118bcf99937b4d2ece93f60ed4ff2652"},{url:"/images/About/tina_sachdeva.webp",revision:"800690c79585bc2731f576ba0e111d3f"},{url:"/images/Build.webp",revision:"f56e23ba63095e171b818ffd73e655c5"},{url:"/images/DreamForce_Plumjob_designara.webp",revision:"dd44d103c17d354fbc50648a337bdf3e"},{url:"/images/Dreamfox_dxify.webp",revision:"7762871c30039e6dbc005abd86ec0c0f"},{url:"/images/Dreamfox_plumjob.webp",revision:"bf6ce3b808468486c5f5a463e457a086"},{url:"/images/Plumjob_dreamfox.webp",revision:"6b49f62ec7bf08fff1d8e0f5741cbf36"},{url:"/images/Scaled.webp",revision:"ecae9d76ff8cbea6b1376fdfe9075583"},{url:"/images/Started.webp",revision:"4bc7a691bc61fde62c1382b27b26f899"},{url:"/images/about_timeline1.webp",revision:"b1e3611fe3da0646631c806fb61bd38e"},{url:"/images/about_timeline2.webp",revision:"2427b1785339950b0c07e0fe33985c64"},{url:"/images/about_timeline3.webp",revision:"3eb35fe85e26f1e15ec37eebb8e2e586"},{url:"/images/about_timeline4.webp",revision:"9fbb467396f95f713739d9088c141482"},{url:"/images/alliances/cohering.webp",revision:"af4201360f2e38f9bcc7c41e29fb98da"},{url:"/images/alliances/giftcart.webp",revision:"b06a6a400ef1444f93a8cd3a5f714b07"},{url:"/images/alliances/godaddy.webp",revision:"1125c21422efa959562248ff93bc9b42"},{url:"/images/alliances/microsoft.webp",revision:"a3e48b21574916faee3277b83e214795"},{url:"/images/alliances/oracle.webp",revision:"4890154be70a052494c741be00ed4dd4"},{url:"/images/alliances/salesforce.webp",revision:"86a70682f6b4b871cf435f3724c8efd5"},{url:"/images/analytics_dreamfox.webp",revision:"23e90917c2d686aea678bf3a3705291c"},{url:"/images/assimilations_dreamfox.webp",revision:"2742543756fd4a51df4da51c40ee79ee"},{url:"/images/assimilations_marketing.webp",revision:"84af8977a28417d62e423ebbb4fa6f02"},{url:"/images/audacis_dreamfox.webp",revision:"3ed238b359b18bbb6d57efd0b995f348"},{url:"/images/betterbuy.webp",revision:"cf85d000727658e3d6582cd158643a49"},{url:"/images/brand_advisory.webp",revision:"2f20b534f6ec5ea52ccd798202c03c1d"},{url:"/images/case_study/VDC.webp",revision:"39355e4ef5a459bf235d194921b01c9d"},{url:"/images/case_study/betterbuy.webp",revision:"6daa413e74d8513fb055d4a79466ad55"},{url:"/images/case_study/giftcart.webp",revision:"c03ffb82b673b57a892419c9b535b199"},{url:"/images/case_study/indic.webp",revision:"2d7428137760a1101d1d21b0f5f3f781"},{url:"/images/case_study/plumjob.webp",revision:"1e50cc232fb2fcc3a23c73412fdc2d95"},{url:"/images/case_study/sweven.webp",revision:"eb797742fd15b4b2dc2ee0c406555ed5"},{url:"/images/case_study/tekcorp.webp",revision:"753fb8f46b51cc3f23437b9692dd06ce"},{url:"/images/case_study/vsys.webp",revision:"1e6a931ddaac8ca541f8211401069655"},{url:"/images/conversion_dreamfox.webp",revision:"fa5f678a75f30ba484e5dfdae39247ad"},{url:"/images/crosswalk.webp",revision:"fada1c90f649c4338b9716aba4ed9547"},{url:"/images/designara_studio.webp",revision:"a19b11d94caebc8d44c155e2c35c97b0"},{url:"/images/dreamfox_enbrand_branding.webp",revision:"22a57c090b1d3aa6508b0999626c1a26"},{url:"/images/dreamfox_indic.webp",revision:"3068b7de592bcf5a12b883fac72b6bb5"},{url:"/images/dreamfox_sweven.webp",revision:"f868326ee223d3d4f8391272b2fbbe6e"},{url:"/images/dreamfox_tekcorp.webp",revision:"39dcce5165bbeec1daf5f241ce11ca16"},{url:"/images/dreamfox_vsys.webp",revision:"b4deaeba5179ab1301e904ca5d899664"},{url:"/images/dreamfox_yippeemedia.webp",revision:"3d50729bb3ed7723dfe5395199a0fbf0"},{url:"/images/everfox.webp",revision:"63eaffd6f4c7fe3e3094d5e256fd6035"},{url:"/images/folder.svg",revision:"a841ca1141a250e398f3caa29e2c4d35"},{url:"/images/fox.png",revision:"ba2116fb3d75639841172d6c4901ef6a"},{url:"/images/fox1.svg",revision:"92540da58230ddf450c25bff342e9bc6"},{url:"/images/fox2.svg",revision:"19d95ba85ce5e6819730eb2c14b69caf"},{url:"/images/funnel_builder_Stratey_Dreamfox.webp",revision:"3f1d97b43e9fd001a0f373dd771468f5"},{url:"/images/giftcart.com.webp",revision:"4b0eae6227a30e26ff0131263ead38d7"},{url:"/images/giftcart.png",revision:"86c1bed7671287d6bd93434c7f78e028"},{url:"/images/giftcart.webp",revision:"45e19d561dd6377ad87af9ffac94ea12"},{url:"/images/giftcart_media.webp",revision:"0963441645e41b2a3f321aa39afbd327"},{url:"/images/home/ai_digital_marketing.webp",revision:"8d97c2f58711f9bf4a105e1403d30af4"},{url:"/images/home/artwork_and_visuals.webp",revision:"bb75358015593764234c0f2fe3471cce"},{url:"/images/home/assimilations.webp",revision:"ed2546125a73efef992a026d0e9b0a8f"},{url:"/images/home/brand_strategy.webp",revision:"764e763d2e07b500523fcab666174ca8"},{url:"/images/home/brandlara_advisory.webp",revision:"ac5df01958b11cbad761f49c3364d749"},{url:"/images/home/brandlara_advisory_2.webp",revision:"590689b0161c9612e389e946a8186368"},{url:"/images/home/cohering.webp",revision:"30c221a5ac6ac51f6b7ef5f3eb5dacf2"},{url:"/images/home/content_marketing.webp",revision:"5310e5a1dd48675791d4af0e4f0faf21"},{url:"/images/home/designara_studio.webp",revision:"db0a19f42ccff116ad401a12c932f53f"},{url:"/images/home/designara_studio_2.webp",revision:"351946de632d1d8bcc460181fe9dd23d"},{url:"/images/home/ecommerce_dxp.webp",revision:"a1a805a07ba1f14e3e3c74bcd3e02ed6"},{url:"/images/home/experience_design.webp",revision:"60ff14e2803999703157e1da3fb7cba3"},{url:"/images/home/godaddy.webp",revision:"8ecc3c4195e0c4a9ca7faa314183d0d1"},{url:"/images/home/logo_design_services.webp",revision:"fe92bfdb7772d049ffdfdc3b7acbab9d"},{url:"/images/home/marketing_automation.webp",revision:"194f6b56a07dd2fd0180bdd7b7461de7"},{url:"/images/home/microsoft.webp",revision:"eb6f754b4ea91891d4fa78c22fbabe4f"},{url:"/images/home/oracle.webp",revision:"bf527270f995003ef31b15c7ceb2d33f"},{url:"/images/home/salesforce.webp",revision:"d22805e1759b25d1eab917f623932618"},{url:"/images/home/search_marketing.webp",revision:"7f9e14b3808973bcb0ee5288f3e051da"},{url:"/images/home/social_media.webp",revision:"ac36742a42d1e2d2132a8d816673b316"},{url:"/images/home/web_development.webp",revision:"8e7c198aa03e4797d450ebf0a9bbd562"},{url:"/images/home/yippee_media.webp",revision:"2abf399dc0501597f6ec286f79417240"},{url:"/images/indic.webp",revision:"a7ccbb0b9792dc95743fa0a1d89b6e96"},{url:"/images/indic_dreamfox.webp",revision:"7532e9a1e5c4a35caca38e8332ffa4f6"},{url:"/images/innovation.webp",revision:"6d861ac70f030d3ad54e4ea18fccc0d7"},{url:"/images/leads_dreamfox.webp",revision:"60ca6e3ce3b22111e9687d1fcd305009"},{url:"/images/marketing-mix/1.jpg",revision:"949b15cc34aeb3c3107a5a60d6f6eae4"},{url:"/images/marketing-mix/2.jpg",revision:"e6610f437d7c025927eebc190de7fbc7"},{url:"/images/marketing-mix/3.jpg",revision:"831034b47c08824233ed4c3c33a2d551"},{url:"/images/marketing-mix/4.jpg",revision:"d8ecf8a8128354144bbcec9da5ff23fb"},{url:"/images/news.jpg",revision:"3dffdc901056f329ba480acf4e3f9f1b"},{url:"/images/october.webp",revision:"a0ec19f7c22651a197066b8c9c4f9934"},{url:"/images/outlaunch_dreamfox.webp",revision:"df01a229ab2ac197bd08a19f1d6a2967"},{url:"/images/paid_ads_dreamfox.webp",revision:"cc8952092bea0b438a7890afa50b6806"},{url:"/images/plumjob.png",revision:"95625c484461f07578d9f96493f8dec2"},{url:"/images/projects/betterbuy_com.webp",revision:"86c79647e906e53c8a5f1a858b5bcdc4"},{url:"/images/projects/crosswalk.ai.webp",revision:"89fc5f161c19a4400f436b08b2abab1e"},{url:"/images/projects/dreamfox_com.webp",revision:"282b88296ee745ad5d2063f7582c09cc"},{url:"/images/projects/giftcart_com.webp",revision:"1f14fb2e7c44fe7cf530d68605eeb756"},{url:"/images/projects/indic.com.webp",revision:"7369fee706445a02608f7a1f094a9c43"},{url:"/images/projects/plumjob_com.webp",revision:"ac0b7915821f8a62582b230bd46549a5"},{url:"/images/projects/sweven_com.webp",revision:"e4293ba92833ea06e443dbfc74284408"},{url:"/images/projects/tekcorp_com.webp",revision:"cc930202a1b9aec94f97b2db14f80d34"},{url:"/images/projects/thomascook_com.webp",revision:"20fafca1c53e1500c5bac4c708c450eb"},{url:"/images/projects/vsys_com.webp",revision:"f5f70bfe6605c42430d53da924db181d"},{url:"/images/services/analytics_insights.webp",revision:"4273d8c159123ac2db6f619ec24e78ae"},{url:"/images/services/content_creation.webp",revision:"2691aa44cc7de4ef1585ed350ce8f76e"},{url:"/images/services/creative_design.webp",revision:"370272e2c81f25b85fce38a01404a96c"},{url:"/images/services/digital_marketing.webp",revision:"bd13bccda84e2842bc3bb1ba1910efcb"},{url:"/images/services/web_development.webp",revision:"b76fdcb91f3ba5e69781461aed32681b"},{url:"/images/sweven_dreamfox.webp",revision:"4daedf563cf997cea2af9821390c1428"},{url:"/images/sweven_new.webp",revision:"e9b55cc3e856de04486382b7776472ec"},{url:"/images/sweven_old.webp",revision:"78aadc865b11692100f97b5a9e754567"},{url:"/images/vdc.webp",revision:"ba57c07931c3a336d8e521d4ac663763"},{url:"/images/vdc_new.webp",revision:"7d77f83f7afdf1f8ff1a28616d905ddd"},{url:"/images/vdc_old.webp",revision:"dae55c5d07057532b09c256a3579b37e"},{url:"/images/vsys.webp",revision:"7f117cc0349e40c4cabf5fd3fb9be9c6"},{url:"/images/vsys_dreamfox.webp",revision:"c1e18b6706f8eff45fc1ee50798d1efd"},{url:"/images/yippee_media.webp",revision:"0690728f5bf447e0dc90e5fc4a021797"},{url:"/images/yippeemedia_dreamfox.webp",revision:"14d056577e39a15fde0fe66f5a1ae73b"},{url:"/logos/dreamfox_emblem.svg",revision:"cd6f7099a3ece4dbe0295d91ba706117"},{url:"/logos/dreamfox_logo.svg",revision:"7f94f710b52f6f3e421a44829348f119"},{url:"/logos/indic_logo.svg",revision:"0e1bc4f3d5df718ac07572e081a65adf"},{url:"/logos/plumjob_logo.svg",revision:"8a0fc06a8e454ed44b4d787cbb82e1bb"},{url:"/logos/sweven_logo.svg",revision:"3ca41b12b1d30160b1ce9a4bb89d56df"},{url:"/logos/tekcorp_logo.svg",revision:"85e1f7e0100ab57c853631d4795d31a8"},{url:"/logos/vsys_logo.svg",revision:"dbc151a49afe2a2e1a228f570cba6808"},{url:"/manifest.json",revision:"2115293234df2fb3eeb7d916120cd92d"},{url:"/og-images/about.jpg",revision:"0c04b1213101c5e7e4b7d452a2908fe1"},{url:"/og-images/ai_marketing.jpg",revision:"4dbe0caab59b9288056341603b490327"},{url:"/og-images/alliances.jpg",revision:"5fdb141970608f172c590c660db694d8"},{url:"/og-images/betterbuy.jpg",revision:"c3691e0bea895b1e323b4edc3b23708d"},{url:"/og-images/branding.jpg",revision:"f2a75e70fc6c6b3da722f6e90738170e"},{url:"/og-images/careers.jpg",revision:"db93f91f08158d2e6c0dbaf38736f2ca"},{url:"/og-images/contact_us.jpg",revision:"e980999b5ecba27b4cf6d94e9c729a42"},{url:"/og-images/cookie_policy.jpg",revision:"fb492933567833714b0d793694ff9a28"},{url:"/og-images/designare_studio.jpg",revision:"d7d74bb7bb19a1fac6684c9546ecfea5"},{url:"/og-images/disclaimer.jpg",revision:"9611f1876e302b76e19e23062d3980e6"},{url:"/og-images/dxpify_launch.jpg",revision:"295fc67ac05c66bedca35358d527bbae"},{url:"/og-images/enbrand_partnership.jpg",revision:"d26577977f296a1d7a81614d39066ede"},{url:"/og-images/gdpr_policy.jpg",revision:"318a62d30ab82edbbb20fc93edc6c747"},{url:"/og-images/giftcart.jpg",revision:"404043d49657313c878c819a10876e7a"},{url:"/og-images/homepage.jpg",revision:"0ba8f1143ddc0b211dc882f694165f2d"},{url:"/og-images/indic.jpg",revision:"acb002c864731a0d37dcfbc45a9aab95"},{url:"/og-images/news_and_events.jpg",revision:"db30ecbed04e95f59aba67dc531e3885"},{url:"/og-images/plumjob.jpg",revision:"66f11eb34981f7ba3a4327c1465ce57d"},{url:"/og-images/plumjob_brand.jpg",revision:"7e4f57917f035163aa7e70638a63c6e5"},{url:"/og-images/portfolio.jpg",revision:"24dac6abd98be5841da4a3c769507393"},{url:"/og-images/privacy_policy.jpg",revision:"f274be129e3cf2dfc155487c28fd5660"},{url:"/og-images/safe_harbour_policy.jpg",revision:"db7f9f2dc46815990d80aa5aa835f7f0"},{url:"/og-images/services.jpg",revision:"a5c5d88b82bd724069affc3df4f5a1af"},{url:"/og-images/sweven.jpg",revision:"9461478b63267258c7549723da76ef8f"},{url:"/og-images/team.jpg",revision:"d3c689ff732be2bcfd5e447e1b937ad8"},{url:"/og-images/tekcorp.jpg",revision:"dab681f71c80bafe9170c9662a03bb9d"},{url:"/og-images/terms_and_condition.jpg",revision:"199c354fe377238707b10ead793b26ce"},{url:"/og-images/vdc.jpg",revision:"f3784c0cdf37d0c4a131acfee664fdba"},{url:"/og-images/vsys.jpg",revision:"1a89326614919b438b02b3da63a720c6"},{url:"/og-images/yippee_acquisition.jpg",revision:"ddaeae52387dbca54209e4943ed14425"},{url:"/og-images/yippee_media.jpg",revision:"713f3ba20a9aeb22abdbafc4fba1717f"},{url:"/robots.txt",revision:"c92cccebe014a9b3d1ed3d6740674a53"},{url:"/service-worker.js",revision:"674ad927173bf3a49a168f001b49f4cf"},{url:"/sitemap.xml",revision:"09f26d010aff9358b9622ca6557f60c7"},{url:"/svgs/amplify.svg",revision:"5c4ca038761c722057c77992841f11eb"},{url:"/svgs/build.svg",revision:"85ae8cc3ea5683d46fb661b1250a3ce9"},{url:"/svgs/define.svg",revision:"a9135e20f401ae7f438ad7f473cd6729"},{url:"/svgs/design.svg",revision:"289e7cbd8ba9fb14b44b9534afd1c359"},{url:"/svgs/ideate.svg",revision:"611dfc5f5659b4e376d3e28adb064d47"},{url:"/svgs/outer-shape.svg",revision:"9046e06a7d4556ebeeb7c56097c52b07"},{url:"/svgs/outline.svg",revision:"5c58981f2176aee3d5d9be5e48b4d414"},{url:"/svgs/process.svg",revision:"2e401afda640ddcd0d2a0698067ecd1d"},{url:"/terms_and_condition.webp",revision:"b19e2b2fe9ad69aace4070d8a4e3a4b5"},{url:"/videos/0_Car_Drifting_3840x2160.mp4",revision:"7ce2b1adfa0c9c7841d8aa68a416217a"},{url:"/videos/Brand_Design_Dreamfox.mp4",revision:"dac8aa7c5b7a059b5cc031fc4e4b6360"},{url:"/videos/Brand_idendity_DreamFox.mp4",revision:"1509149d78f1341f5a0e7210c8bf9428"},{url:"/videos/DreamFox_BetterBuy.mp4",revision:"b0dc5494e8809f139d8e32f9ddc9a3fe"},{url:"/videos/Dreamfox_Crosswalk.mp4",revision:"17a03f855c65e75f1940df910bba4994"},{url:"/videos/Dreamfox_Everfox.mp4",revision:"7b7bc12cfcfb0bc5138b067e47956e25"},{url:"/videos/Dreamfox_Giftcart.mp4",revision:"63591f392b5d0a848bc54d15f91dc80c"},{url:"/videos/Dreamfox_INDIC.mp4",revision:"4fbbeba1c5077c0c2a3043ef8ba36e45"},{url:"/videos/Dreamfox_October.ai.mp4",revision:"9cd91d30a09c07eb78e4bf40a13f64de"},{url:"/videos/Giftcart.mp4",revision:"fcb9021a52f3de6a2f90c4e07948af2e"},{url:"/videos/betterbuy.mp4",revision:"3784a3e1010f7092c20ab19ba36c7535"},{url:"/videos/vdc.mp4",revision:"2862eaf9f2081fbe1d1ef36d47b39259"},{url:"/virtuos-logo.svg",revision:"c99f0d9af6ce4ca1c49d34e07a6d1254"},{url:"/work/work1.png",revision:"137f73f9817f614d2b3f02e5d33f6926"}],{ignoreURLParametersMatching:[]}),e.cleanupOutdatedCaches(),e.registerRoute("/",new e.NetworkFirst({cacheName:"start-url",plugins:[{cacheWillUpdate:async({request:e,response:a,event:s,state:i})=>a&&"opaqueredirect"===a.type?new Response(a.body,{status:200,statusText:"OK",headers:a.headers}):a}]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(?:gstatic)\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts-webfonts",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:31536e3})]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(?:googleapis)\.com\/.*/i,new e.StaleWhileRevalidate({cacheName:"google-fonts-stylesheets",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:604800})]}),"GET"),e.registerRoute(/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,new e.StaleWhileRevalidate({cacheName:"static-font-assets",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:604800})]}),"GET"),e.registerRoute(/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,new e.StaleWhileRevalidate({cacheName:"static-image-assets",plugins:[new e.ExpirationPlugin({maxEntries:64,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\/_next\/image\?url=.+$/i,new e.StaleWhileRevalidate({cacheName:"next-image",plugins:[new e.ExpirationPlugin({maxEntries:64,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:mp3|wav|ogg)$/i,new e.CacheFirst({cacheName:"static-audio-assets",plugins:[new e.RangeRequestsPlugin,new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:mp4)$/i,new e.CacheFirst({cacheName:"static-video-assets",plugins:[new e.RangeRequestsPlugin,new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:js)$/i,new e.StaleWhileRevalidate({cacheName:"static-js-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:css|less)$/i,new e.StaleWhileRevalidate({cacheName:"static-style-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\/_next\/data\/.+\/.+\.json$/i,new e.StaleWhileRevalidate({cacheName:"next-data",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:json|xml|csv)$/i,new e.NetworkFirst({cacheName:"static-data-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(({url:e})=>{if(!(self.origin===e.origin))return!1;const a=e.pathname;return!a.startsWith("/api/auth/")&&!!a.startsWith("/api/")},new e.NetworkFirst({cacheName:"apis",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:16,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(({url:e})=>{if(!(self.origin===e.origin))return!1;return!e.pathname.startsWith("/api/")},new e.NetworkFirst({cacheName:"others",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(({url:e})=>!(self.origin===e.origin),new e.NetworkFirst({cacheName:"cross-origin",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:3600})]}),"GET")});
+if (!self.define) {
+  let e,
+    a = {};
+  const s = (s, i) => (
+    (s = new URL(s + ".js", i).href),
+    a[s] ||
+      new Promise((a) => {
+        if ("document" in self) {
+          const e = document.createElement("script");
+          (e.src = s), (e.onload = a), document.head.appendChild(e);
+        } else (e = s), importScripts(s), a();
+      }).then(() => {
+        let e = a[s];
+        if (!e) throw new Error(`Module ${s} didn’t register its module`);
+        return e;
+      })
+  );
+  self.define = (i, c) => {
+    const r =
+      e ||
+      ("document" in self ? document.currentScript.src : "") ||
+      location.href;
+    if (a[r]) return;
+    let d = {};
+    const b = (e) => s(e, r),
+      o = { module: { uri: r }, exports: d, require: b };
+    a[r] = Promise.all(i.map((e) => o[e] || b(e))).then((e) => (c(...e), d));
+  };
+}
+define(["./workbox-4754cb34"], function (e) {
+  "use strict";
+  importScripts(),
+    self.addEventListener("message", (e) => {
+      e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting();
+    }),
+    e.clientsClaim(),
+    e.precacheAndRoute(
+      [
+        {
+          url: "/_next/dynamic-css-manifest.json",
+          revision: "d751713988987e9331980363e24189ce",
+        },
+        {
+          url: "/_next/static/chunks/0465ed09-576b39edb42ddf6d.js",
+          revision: "576b39edb42ddf6d",
+        },
+        {
+          url: "/_next/static/chunks/1358-1dff2382cc4fea2b.js",
+          revision: "1dff2382cc4fea2b",
+        },
+        {
+          url: "/_next/static/chunks/1451-5aac271e1039b35d.js",
+          revision: "5aac271e1039b35d",
+        },
+        {
+          url: "/_next/static/chunks/1866-9c49266b9fe9a782.js",
+          revision: "9c49266b9fe9a782",
+        },
+        {
+          url: "/_next/static/chunks/2e6f1b4f.e2a41875005fc0f4.js",
+          revision: "e2a41875005fc0f4",
+        },
+        {
+          url: "/_next/static/chunks/3556.f39b0c02690cd34f.js",
+          revision: "f39b0c02690cd34f",
+        },
+        {
+          url: "/_next/static/chunks/3843-3ef70876d6048736.js",
+          revision: "3ef70876d6048736",
+        },
+        {
+          url: "/_next/static/chunks/4122-bb1fcc5fc8fa66cf.js",
+          revision: "bb1fcc5fc8fa66cf",
+        },
+        {
+          url: "/_next/static/chunks/4399-11ef615fa4f18d70.js",
+          revision: "11ef615fa4f18d70",
+        },
+        {
+          url: "/_next/static/chunks/454e6ae6.d9ecd42e7dcd3d55.js",
+          revision: "d9ecd42e7dcd3d55",
+        },
+        {
+          url: "/_next/static/chunks/4587-489c5c609c5130c3.js",
+          revision: "489c5c609c5130c3",
+        },
+        {
+          url: "/_next/static/chunks/5193.0997ecf9536379de.js",
+          revision: "0997ecf9536379de",
+        },
+        {
+          url: "/_next/static/chunks/556-f119b82e0223a3ba.js",
+          revision: "f119b82e0223a3ba",
+        },
+        {
+          url: "/_next/static/chunks/5921-0852ea32861d76e7.js",
+          revision: "0852ea32861d76e7",
+        },
+        {
+          url: "/_next/static/chunks/6424-8da8683720f97b2b.js",
+          revision: "8da8683720f97b2b",
+        },
+        {
+          url: "/_next/static/chunks/7101-2e7f454250063d4c.js",
+          revision: "2e7f454250063d4c",
+        },
+        {
+          url: "/_next/static/chunks/7137.5b827eb0d7e8aef2.js",
+          revision: "5b827eb0d7e8aef2",
+        },
+        {
+          url: "/_next/static/chunks/7862-45e2fc0da5c985ac.js",
+          revision: "45e2fc0da5c985ac",
+        },
+        {
+          url: "/_next/static/chunks/7912-dcc7b4faf0d4219d.js",
+          revision: "dcc7b4faf0d4219d",
+        },
+        {
+          url: "/_next/static/chunks/8230-c16552413f0c6daa.js",
+          revision: "c16552413f0c6daa",
+        },
+        {
+          url: "/_next/static/chunks/8284-c0a7e92f048dc998.js",
+          revision: "c0a7e92f048dc998",
+        },
+        {
+          url: "/_next/static/chunks/8301.388487dbc197a606.js",
+          revision: "388487dbc197a606",
+        },
+        {
+          url: "/_next/static/chunks/942-96b28775d5c52467.js",
+          revision: "96b28775d5c52467",
+        },
+        {
+          url: "/_next/static/chunks/framework-e54b663a2888b5de.js",
+          revision: "e54b663a2888b5de",
+        },
+        {
+          url: "/_next/static/chunks/main-f93bbf14ef644a4d.js",
+          revision: "f93bbf14ef644a4d",
+        },
+        {
+          url: "/_next/static/chunks/pages/_app-de70cfd4cc6833f5.js",
+          revision: "de70cfd4cc6833f5",
+        },
+        {
+          url: "/_next/static/chunks/pages/_error-eefed38d469aef0c.js",
+          revision: "eefed38d469aef0c",
+        },
+        {
+          url: "/_next/static/chunks/pages/about-149d836f425f886d.js",
+          revision: "149d836f425f886d",
+        },
+        {
+          url: "/_next/static/chunks/pages/about/alliances-cd57636e9369c195.js",
+          revision: "cd57636e9369c195",
+        },
+        {
+          url: "/_next/static/chunks/pages/careers-6e5d6d85583255e2.js",
+          revision: "6e5d6d85583255e2",
+        },
+        {
+          url: "/_next/static/chunks/pages/about/team-a1027c3cfb80d6da.js",
+          revision: "a1027c3cfb80d6da",
+        },
+        {
+          url: "/_next/static/chunks/pages/contactus-71b639c46350d37e.js",
+          revision: "71b639c46350d37e",
+        },
+        {
+          url: "/_next/static/chunks/pages/cookie-policy-a7d09c959a9a5053.js",
+          revision: "a7d09c959a9a5053",
+        },
+        {
+          url: "/_next/static/chunks/pages/disclaimer-1e2b4cc653f8b035.js",
+          revision: "1e2b4cc653f8b035",
+        },
+        {
+          url: "/_next/static/chunks/pages/gdpr-policy-0af61c4afbe22383.js",
+          revision: "0af61c4afbe22383",
+        },
+        {
+          url: "/_next/static/chunks/pages/index-d77613cd254f2c37.js",
+          revision: "d77613cd254f2c37",
+        },
+        {
+          url: "/_next/static/chunks/pages/news-events-242bc51ed0ab2197.js",
+          revision: "242bc51ed0ab2197",
+        },
+        {
+          url: "/_next/static/chunks/pages/news-events/dreamfox-acquires-yippee-media-2cc11423c412c710.js",
+          revision: "2cc11423c412c710",
+        },
+        {
+          url: "/_next/static/chunks/pages/news-events/dreamfox-develops-plumjob-brand-designara-experience-services-2437be2e2aa2a0b3.js",
+          revision: "2437be2e2aa2a0b3",
+        },
+        {
+          url: "/_next/static/chunks/pages/news-events/dreamfox-enbrand-unite-integrated-branding-digital-experience-solutions-2f0131db24a11db7.js",
+          revision: "2f0131db24a11db7",
+        },
+        {
+          url: "/_next/static/chunks/pages/news-events/plumjob-launch-dxpify-dxp-as-a-service-developed-by-dreamfox-1303ba4570e16d40.js",
+          revision: "1303ba4570e16d40",
+        },
+        {
+          url: "/_next/static/chunks/pages/privacy-policy-1b7f398051a7ecf0.js",
+          revision: "1b7f398051a7ecf0",
+        },
+        {
+          url: "/_next/static/chunks/pages/safe-harbour-policy-fad8a3076bdb95a7.js",
+          revision: "fad8a3076bdb95a7",
+        },
+        {
+          url: "/_next/static/chunks/pages/services-c352a045a0de92eb.js",
+          revision: "c352a045a0de92eb",
+        },
+        {
+          url: "/_next/static/chunks/pages/services/brand-advisory-a9282cc77fa8e8a4.js",
+          revision: "a9282cc77fa8e8a4",
+        },
+        {
+          url: "/_next/static/chunks/pages/services/brand-advisory/plumjob-40a419e1d69dbcf5.js",
+          revision: "40a419e1d69dbcf5",
+        },
+        {
+          url: "/_next/static/chunks/pages/services/design-studio-b88a160c30e2977e.js",
+          revision: "b88a160c30e2977e",
+        },
+        {
+          url: "/_next/static/chunks/pages/services/digital-marketing-f87beadc229b1f81.js",
+          revision: "f87beadc229b1f81",
+        },
+        {
+          url: "/_next/static/chunks/pages/services/digital-media-mix-18538300f655f080.js",
+          revision: "18538300f655f080",
+        },
+        {
+          url: "/_next/static/chunks/pages/terms-of-use-a83882272d1fb433.js",
+          revision: "a83882272d1fb433",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio-d67627837e3b0361.js",
+          revision: "d67627837e3b0361",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/better-buy-club-case-study-64435d705f1a57b7.js",
+          revision: "64435d705f1a57b7",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/giftcart-case-study-ecd06ed142ef7ce5.js",
+          revision: "ecd06ed142ef7ce5",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/indic-case-study-782682829fcd691d.js",
+          revision: "782682829fcd691d",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/plumjob-case-study-abbed480beed4374.js",
+          revision: "abbed480beed4374",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/sweven-case-study-bdc2ef1ee2b1528a.js",
+          revision: "bdc2ef1ee2b1528a",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/tekcorp-case-study-709ec150d2c4ec41.js",
+          revision: "709ec150d2c4ec41",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/vdc-case-study-27b9c90d0021d6af.js",
+          revision: "27b9c90d0021d6af",
+        },
+        {
+          url: "/_next/static/chunks/pages/work-portfolio/vsys-case-study-e0c79a26cd80525a.js",
+          revision: "e0c79a26cd80525a",
+        },
+        {
+          url: "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+          revision: "846118c33b2c0e922d7b3a7676f81f6f",
+        },
+        {
+          url: "/_next/static/chunks/webpack-adb51f9c2abe348a.js",
+          revision: "adb51f9c2abe348a",
+        },
+        {
+          url: "/_next/static/css/16466131d8ae5843.css",
+          revision: "16466131d8ae5843",
+        },
+        {
+          url: "/_next/static/css/3cd83cfe34ca397f.css",
+          revision: "3cd83cfe34ca397f",
+        },
+        {
+          url: "/_next/static/css/4654c4865824bba0.css",
+          revision: "4654c4865824bba0",
+        },
+        {
+          url: "/_next/static/css/571e5d9351af61fa.css",
+          revision: "571e5d9351af61fa",
+        },
+        {
+          url: "/_next/static/css/aa04cf9059ddede3.css",
+          revision: "aa04cf9059ddede3",
+        },
+        {
+          url: "/_next/static/yR9QEHRi9sAv4ehoa7FpN/_buildManifest.js",
+          revision: "af4920d45d62dde601d90815c298fc93",
+        },
+        {
+          url: "/_next/static/yR9QEHRi9sAv4ehoa7FpN/_ssgManifest.js",
+          revision: "b6652df95db52feb4daf4eca35380933",
+        },
+        {
+          url: "/casestudy/LinkedIn_Shreyank.png",
+          revision: "1c2d4a97ef32ac673009abe89d694018",
+        },
+        {
+          url: "/casestudy/about_apeejay_education.webp",
+          revision: "5b5e6a979fd428bd6285d6106952a58e",
+        },
+        {
+          url: "/casestudy/about_barq.webp",
+          revision: "c5729a34931a1e2d7699d80beae7d36e",
+        },
+        {
+          url: "/casestudy/about_leading_hotel_booking_processor.webp",
+          revision: "1edb549de87e4e08fb6d23fcc3b73e48",
+        },
+        {
+          url: "/casestudy/about_manufacturing_industry_giant.webp",
+          revision: "c491aba4614fb8b8560e79d0a957fa0e",
+        },
+        {
+          url: "/casestudy/about_satellite_space_company.webp",
+          revision: "99678c05b26452d409115317703865e4",
+        },
+        {
+          url: "/casestudy/about_securitas.webp",
+          revision: "3b213f3a22ef03a334de411e80d3d1a7",
+        },
+        {
+          url: "/casestudy/about_standard_chartered_bank.webp",
+          revision: "c4378f45c0c9326cdf650d8cd1827e5d",
+        },
+        {
+          url: "/casestudy/about_the_leading_brewery_company.webp",
+          revision: "c2b08b1214fa82c62eecef389b268e71",
+        },
+        {
+          url: "/casestudy/about_the_space_ops_insights_company.webp",
+          revision: "6b1d3d89208950a5a4d54bf8cdd6404e",
+        },
+        {
+          url: "/casestudy/about_thomas_cook_india.webp",
+          revision: "d59bfd025a1942f49f01f28244288248",
+        },
+        {
+          url: "/casestudy/about_virtuos_digital.webp",
+          revision: "1e5e470e692bc950c4c23174960950de",
+        },
+        {
+          url: "/casestudy/ams_profile.webp",
+          revision: "7f4f752f8c64927a5cdbdfc6c27acb9f",
+        },
+        {
+          url: "/casestudy/apeejay_group_automates_student_experience.webp",
+          revision: "03e1d7391bbb7120ca14a227477a650f",
+        },
+        {
+          url: "/casestudy/asana_worksuite_implementation.webp",
+          revision: "60df2c3c9c4431e49be3c8882a3be6c7",
+        },
+        {
+          url: "/casestudy/barq_fintech_company_implements.webp",
+          revision: "3d52d10d0c7914025299727bd2b5462b",
+        },
+        {
+          url: "/casestudy/barq_section_video.mp4",
+          revision: "7e9f449e2c0a6e41c608235abfefee04",
+        },
+        {
+          url: "/casestudy/challenges_before_agiloft_clm.webp",
+          revision: "4fb17ab0ec5f4d19f18826785d5de6c8",
+        },
+        {
+          url: "/casestudy/clp_logo.svg",
+          revision: "63c890b57100c2c80d8671c567804769",
+        },
+        {
+          url: "/casestudy/clp_modernizes_stakeholder_management.webp",
+          revision: "d5001e52274fac9f46ab3612806fff10",
+        },
+        {
+          url: "/casestudy/design_thinking_in_action.webp",
+          revision: "63ceaf32f9a5229538942ae1587b0b93",
+        },
+        {
+          url: "/casestudy/differentiation_and_value_proposition.webp",
+          revision: "7ee5130341dbf04b38d8dd6f2f0c18c0",
+        },
+        {
+          url: "/casestudy/empowering_indias_financial_aspirations.webp",
+          revision: "f0b7caa4a4b547441ff116975c4d8262",
+        },
+        {
+          url: "/casestudy/enter_cxdesk.webp",
+          revision: "4e302cd2ebd3cf02843b24bc15d1c7d0",
+        },
+        {
+          url: "/casestudy/from_rightnow_to_fusion.webp",
+          revision: "bb34f13d75d8ec86890c728343793cfd",
+        },
+        {
+          url: "/casestudy/hdfc_life_digitizes_quote_management.webp",
+          revision: "59f971d613c5247c51f7a16417e91525",
+        },
+        {
+          url: "/casestudy/icons/amendments.svg",
+          revision: "709d5e2def953d125662e82342806153",
+        },
+        {
+          url: "/casestudy/icons/approvals.svg",
+          revision: "30dc2a8f9cc8c9ad0f51c414ac681e2a",
+        },
+        {
+          url: "/casestudy/icons/complex_project_tracking.svg",
+          revision: "4c0c606c31e693da21f283004506b4de",
+        },
+        {
+          url: "/casestudy/icons/disconnected_platforms.svg",
+          revision: "d52b142f4cd2cce1a3f66f073a250954",
+        },
+        {
+          url: "/casestudy/icons/fragmented_visibility.svg",
+          revision: "0d0c4af45de6e64b9b1e5baa6588fda4",
+        },
+        {
+          url: "/casestudy/icons/integration_issues.svg",
+          revision: "7e98fe3b0e3843f93b5b5a26dad9e146",
+        },
+        {
+          url: "/casestudy/icons/integrations.svg",
+          revision: "d52277dfed05b930115022ba9597592e",
+        },
+        {
+          url: "/casestudy/icons/lack_of_visibility.svg",
+          revision: "01f4ec7cb667fd9f4c238ae8b6912c33",
+        },
+        {
+          url: "/casestudy/icons/legacy_system.svg",
+          revision: "9249c635eddbd1902542022f86a5388c",
+        },
+        {
+          url: "/casestudy/icons/limited_flexibility.svg",
+          revision: "961d2c471c42d08a56dc4d205820ac2c",
+        },
+        {
+          url: "/casestudy/icons/limited_visibilities.svg",
+          revision: "bc3a76c334db3199eb2cefbf2f0d2a0b",
+        },
+        {
+          url: "/casestudy/icons/manual_approval.svg",
+          revision: "c235a6203e92c9f785d1bc258ac0d689",
+        },
+        {
+          url: "/casestudy/icons/manual_reporting.svg",
+          revision: "70dbe97b15a37e7bb30a5e83d423f9fb",
+        },
+        {
+          url: "/casestudy/icons/manual_status.svg",
+          revision: "9e808e27f43179d03055a86948fdd18e",
+        },
+        {
+          url: "/casestudy/icons/poor_collaboration.svg",
+          revision: "ed462c4b4646c9b9224c2463bb16844b",
+        },
+        {
+          url: "/casestudy/icons/process_bottleneck.svg",
+          revision: "fa1758566b27b1085a9aaff9af0f0d9e",
+        },
+        {
+          url: "/casestudy/icons/real_time_dashboard.svg",
+          revision: "c948aacc787d6f55af9cc12c33e15c72",
+        },
+        {
+          url: "/casestudy/icons/real_time_insights.svg",
+          revision: "da7bf1c35eff3b33c08530b28198983f",
+        },
+        {
+          url: "/casestudy/icons/risk_mnanagement.svg",
+          revision: "1e0c0e2af2c952fdb929e7fcbad50fb2",
+        },
+        {
+          url: "/casestudy/icons/scalability_concers.svg",
+          revision: "2ba573021f1bba278e9191640ed0118d",
+        },
+        {
+          url: "/casestudy/icons/scaling_difficulties.svg",
+          revision: "c1995d8816c36beca1cd7871b7ff6ec3",
+        },
+        {
+          url: "/casestudy/icons/sioled_development.svg",
+          revision: "d52b142f4cd2cce1a3f66f073a250954",
+        },
+        {
+          url: "/casestudy/icons/soiled_workflow.svg",
+          revision: "4989222aa699f52506f847b6d59ceca0",
+        },
+        {
+          url: "/casestudy/implementing_asana_worksuite_with_virtuos_digital.webp",
+          revision: "5277d3efc355ac3ae998618c8f42e6cb",
+        },
+        {
+          url: "/casestudy/implementing_creatio_with_virtuos_digital.webp",
+          revision: "98dc1c188bdc49e162e1a53173a6bc63",
+        },
+        {
+          url: "/casestudy/implementing_smartsheet_with_vdc.webp",
+          revision: "1f1438b516c2755c1a43b10e84b4342a",
+        },
+        {
+          url: "/casestudy/kgisl.webp",
+          revision: "44290b359cee58fc065bb6580309f5e0",
+        },
+        {
+          url: "/casestudy/kgisl_video.mp4",
+          revision: "ea6e677dcd081c3028fa3e857ee4facc",
+        },
+        {
+          url: "/casestudy/kgisl_white_logo.svg",
+          revision: "a2ff786256f35f2044e8769fc6bb9bcb",
+        },
+        {
+          url: "/casestudy/kgsil_streamlines_contract_management_with_agiloft.webp",
+          revision: "42a0067484baa783a6299095c2543bd5",
+        },
+        {
+          url: "/casestudy/last_section_image.webp",
+          revision: "ad1dbd7632b18896655faa46927be23c",
+        },
+        {
+          url: "/casestudy/leading_brewery_company.webp",
+          revision: "91e96d8006c0cebd09911e31e9c15b4f",
+        },
+        {
+          url: "/casestudy/leading_hotel_booking_processor.webp",
+          revision: "07bdbd3ba95e8b623110c3a9bb3e1ad5",
+        },
+        {
+          url: "/casestudy/logos/360_degrees.svg",
+          revision: "1507f50c8a1be63227ee30854ee50e5e",
+        },
+        {
+          url: "/casestudy/logos/No_intelligence.svg",
+          revision: "acf522809136b2c128708ee137815858",
+        },
+        {
+          url: "/casestudy/logos/barq.svg",
+          revision: "3b82aba0a6e90fcd4db8fe11774f62fb",
+        },
+        {
+          url: "/casestudy/logos/barq_black.svg",
+          revision: "ce619ca3d7d0b7c1fb5a0134af74dd0e",
+        },
+        {
+          url: "/casestudy/logos/customer_experience_cap.svg",
+          revision: "2ec1c95bb90f94d509c3a885ab844a70",
+        },
+        {
+          url: "/casestudy/logos/fragmented_response_ecosystem.svg",
+          revision: "0b703c697b0371f8feb6a37ffc7ca8db",
+        },
+        {
+          url: "/casestudy/logos/fragmented_task_management.svg",
+          revision: "004d549a45b688245a3f6c2ea64b3e44",
+        },
+        {
+          url: "/casestudy/logos/fragmented_tracking.svg",
+          revision: "fcf9b773a86986e1e0b837966925c738",
+        },
+        {
+          url: "/casestudy/logos/fragmentic_interface.svg",
+          revision: "0d13ad0112ea6c6ecf30a7db58b9256c",
+        },
+        {
+          url: "/casestudy/logos/inefficient_workflow.svg",
+          revision: "a6110226c54e700226a5d0a15bc07168",
+        },
+        {
+          url: "/casestudy/logos/lack_of_centralized_cx.svg",
+          revision: "1764cb02abcdc9605e70330ad11c6e17",
+        },
+        {
+          url: "/casestudy/logos/lack_of_real_time_status.svg",
+          revision: "25ea2ff08d00a0d03df10c7d30867485",
+        },
+        {
+          url: "/casestudy/logos/limited_visibilities.svg",
+          revision: "9f394220f80f0c21dd4794881902aaa0",
+        },
+        {
+          url: "/casestudy/logos/mannual_process.svg",
+          revision: "3c87cffdeaef97f84e9187c9b13a9943",
+        },
+        {
+          url: "/casestudy/logos/manual_reporting_bottlenecks.svg",
+          revision: "d00919de4da364ba3f2e6c9ea82d3ae2",
+        },
+        {
+          url: "/casestudy/logos/missed_deadlines.svg",
+          revision: "b80b37cd3d5ebc8773fab3db227633a9",
+        },
+        {
+          url: "/casestudy/logos/no_unified_platform.svg",
+          revision: "1df1eeb17475a42cb0860f7ac94952e8",
+        },
+        {
+          url: "/casestudy/logos/operational_inefficiencies.svg",
+          revision: "bc78e184b7ef2b514926c23b28042588",
+        },
+        {
+          url: "/casestudy/logos/rigid_functionality.svg",
+          revision: "b248df357193a76a0a5230b9f5887eb5",
+        },
+        {
+          url: "/casestudy/logos/self_service_capabilities.svg",
+          revision: "ca7adb99ef3ad42cf5a3350571fdf55a",
+        },
+        {
+          url: "/casestudy/logos/thomascookindia.svg",
+          revision: "365be25372ca2ed8fa0bbf48984cb274",
+        },
+        {
+          url: "/casestudy/logos/version_confusion.svg",
+          revision: "d882a2815f95a76c3ecc1dcbebeb500d",
+        },
+        {
+          url: "/casestudy/manufacturing_industry_giant_implements.webp",
+          revision: "28b65df09ecbaccef164f985bd7a46e9",
+        },
+        {
+          url: "/casestudy/mig_asana.svg",
+          revision: "9af7b3ea051ad59763310a6fc642c3b3",
+        },
+        {
+          url: "/casestudy/no_code_student_experience_platform.webp",
+          revision: "4f4dad954a300f85bff38efafd0c82fd",
+        },
+        {
+          url: "/casestudy/oracle_fusion_cx_implemented.webp",
+          revision: "961fd797abf223ac1b86b6b1b9620dee",
+        },
+        {
+          url: "/casestudy/oracle_video.mp4",
+          revision: "ad32fde6ea8f2b5a38d977ac014aa45b",
+        },
+        {
+          url: "/casestudy/pickme_accelerates_customer_experience.webp",
+          revision: "a22d77e940b3454cbaf210c866006205",
+        },
+        {
+          url: "/casestudy/pickme_banner.webp",
+          revision: "d1daba65a38a38d583292083d7b60056",
+        },
+        {
+          url: "/casestudy/plumjob1.svg",
+          revision: "a40174ee6ab1aa6e8e94a8fd2a4604ab",
+        },
+        {
+          url: "/casestudy/plumjob2.svg",
+          revision: "ceb941f71ead676a337a919e00841e90",
+        },
+        {
+          url: "/casestudy/project_highlights.webp",
+          revision: "99662dc9d22e16a3d1e5705ae50dbe83",
+        },
+        {
+          url: "/casestudy/quote_management_process.svg",
+          revision: "13edd0e680e89a8be1d23f9376f84709",
+        },
+        {
+          url: "/casestudy/right_side_image.webp",
+          revision: "d42a37175a75ff100aa6259b7e091853",
+        },
+        {
+          url: "/casestudy/satellite_space_company_launches_smartsheet.webp",
+          revision: "d9215e727018c2c498a80b3bdc70b2ab",
+        },
+        {
+          url: "/casestudy/securitas_implements_contract_intelligence.webp",
+          revision: "ffff4f71a0453578cd63448e3f7990c3",
+        },
+        {
+          url: "/casestudy/smartsheet_insights.mp4",
+          revision: "c054d06e9ad952b7ef74dfffd9ab14e6",
+        },
+        {
+          url: "/casestudy/space_ops_insights_company_integrates_smartsheet.webp",
+          revision: "c4bc97c6d5e25c1f139c92898e25c459",
+        },
+        {
+          url: "/casestudy/standard_chartered_advances_email_automation_journey.webp",
+          revision: "4ad007a3ded1e0dd325a2f6e49eeac1d",
+        },
+        {
+          url: "/casestudy/the_journey_from_oracle_cx_to_cxdesk.webp",
+          revision: "d945c0482406f79b046d2e0fb1de1b12",
+        },
+        {
+          url: "/casestudy/the_need_for_a_seamless_student_experience.webp",
+          revision: "c17aaa3be36bf20eff28d1de3a4b71e7",
+        },
+        {
+          url: "/casestudy/the_virtuos_edge.webp",
+          revision: "0fa4bc1c3aa9142a32fa9de4b76e44bd",
+        },
+        {
+          url: "/casestudy/thomas_cook_india_creates_experience_business_with_cxdesk.webp",
+          revision: "4dde6ddb25fa289cd2d4998aa401a513",
+        },
+        {
+          url: "/casestudy/transforming_contract_management_with_agiloft_clm.webp",
+          revision: "5238671dcf2cf8b4a439c450c1d3edb9",
+        },
+        {
+          url: "/casestudy/tvs_credit_fuels_customer_delight.webp",
+          revision: "b5d6a46a284ab006dcd937cd34de414c",
+        },
+        {
+          url: "/casestudy/vdc_creatio_logo.svg",
+          revision: "00665bb885f0a1d863767fe2e0a6b8c8",
+        },
+        {
+          url: "/casestudy/virtuos_edge.webp",
+          revision: "f6ea34a0899092548095460a74b62382",
+        },
+        {
+          url: "/casestudy/virtuos_edge_&_approach.webp",
+          revision: "96452a969cce14c6b9a23d686de75bb2",
+        },
+        {
+          url: "/casestudy/why_standard_chartered.webp",
+          revision: "b7e8b4ccfc80b72b8ecc5152a7273027",
+        },
+        {
+          url: "/casestudy/why_virtuos_and_asana_as_a_solution.webp",
+          revision: "acd038a98ce386a5d643dc3c978004dd",
+        },
+        {
+          url: "/casestudy/why_virtuos_and_smartsheet.webp",
+          revision: "34d033dfe37928ed10bc4ef961596dce",
+        },
+        {
+          url: "/casestudy/why_virtuos_and_smartsheet_as_a_solution.webp",
+          revision: "a567627685910988f99b649c2b295142",
+        },
+        {
+          url: "/dreamfox_logo.png",
+          revision: "b5b311e474348ddeac1cccb141f3586c",
+        },
+        {
+          url: "/dreamfox_logo.svg",
+          revision: "7f94f710b52f6f3e421a44829348f119",
+        },
+        { url: "/favicon.ico", revision: "cd6f7099a3ece4dbe0295d91ba706117" },
+        {
+          url: "/icons/cursor-hover.svg",
+          revision: "1245e79e8e50f1fc577e26057b6b9663",
+        },
+        {
+          url: "/icons/cursor.svg",
+          revision: "6e9eb6afdee76f2b2d2dc051eab4ca71",
+        },
+        {
+          url: "/icons/dreamfox_emblem.svg",
+          revision: "e3b0472634fae70b40b73060c47bcb9c",
+        },
+        {
+          url: "/icons/ring.svg",
+          revision: "3945f939f7bf3773a71302e17af66d6b",
+        },
+        {
+          url: "/images/1307355.jpg",
+          revision: "ef4f051fb5ab62018e7e96f3833f701b",
+        },
+        {
+          url: "/images/645364.jpg",
+          revision: "d189ba427cb5d01bfd30e7e020fafa2c",
+        },
+        {
+          url: "/images/About/1.png",
+          revision: "e2fd3b581da71f2d15f70fa9626bc2bb",
+        },
+        {
+          url: "/images/About/2.png",
+          revision: "9007e29cca3ec9c5c34b171854d1e884",
+        },
+        {
+          url: "/images/About/3.png",
+          revision: "bb61ac9c28c891d9f3b3f05ff44a304f",
+        },
+        {
+          url: "/images/About/4.png",
+          revision: "a5c57d3fbad0dcb39faffaad724cac70",
+        },
+        {
+          url: "/images/About/5.png",
+          revision: "7af81e3bb8d8c0daccc8bd9dab9a2ee9",
+        },
+        {
+          url: "/images/About/App.svg",
+          revision: "8d009b0a21e3282ee7434edbc5caf259",
+        },
+        {
+          url: "/images/About/Brand_Design.svg",
+          revision: "8aea7131a60f497130f005957730640d",
+        },
+        {
+          url: "/images/About/Brand_Manager.webp",
+          revision: "f69b002ce7317545d52853d1961e65b5",
+        },
+        {
+          url: "/images/About/Content_Strategy.svg",
+          revision: "11c13285a4c7eadcf1ac487222f6cd2d",
+        },
+        {
+          url: "/images/About/Customer_Success_Manager.webp",
+          revision: "763d31f9bc9c524f323423f7aa7971fc",
+        },
+        {
+          url: "/images/About/Demandgen_Executive.webp",
+          revision: "ee2386b462b8f62883b08466bfe4f5ae",
+        },
+        {
+          url: "/images/About/Design_Consulting.svg",
+          revision: "490f05a92f1bb4d6a872603ff6ad4fbd",
+        },
+        {
+          url: "/images/About/Digital_Marketing_Head.webp",
+          revision: "21288826e021406ecd993f86f0ce71b9",
+        },
+        {
+          url: "/images/About/Hashim_Marazi.png",
+          revision: "ac042352b485b21e46f03f66762f9260",
+        },
+        {
+          url: "/images/About/SEO_SMO_Executive.webp",
+          revision: "74c93cb7ec48b0d3fe232e67587e60b7",
+        },
+        {
+          url: "/images/About/UX.svg",
+          revision: "0bfbe50ee87d678a8d5214713d9432a7",
+        },
+        {
+          url: "/images/About/abdul.webp",
+          revision: "0cc0b97380370e86464eda51cb7304ca",
+        },
+        {
+          url: "/images/About/aditya.webp",
+          revision: "99b792c70c11e106ef163455ea5c6869",
+        },
+        {
+          url: "/images/About/ams.webp",
+          revision: "ce7c4e64525ed0c66a2fca0221a988a1",
+        },
+        {
+          url: "/images/About/everfox.png",
+          revision: "4e03cf84a4b24c096770525852ed43db",
+        },
+        {
+          url: "/images/About/hemant_tyagi.webp",
+          revision: "bd0004baf2de86d6fb632e8bc0c4386d",
+        },
+        {
+          url: "/images/About/our_mission1.webp",
+          revision: "ec392795b6122a8e8e52b87e35186907",
+        },
+        {
+          url: "/images/About/our_mission2.webp",
+          revision: "67dea180c39ae44b2af4c54eb541733d",
+        },
+        {
+          url: "/images/About/our_mission3.webp",
+          revision: "2df92ba5bc7c689de954ec50a4ffcddf",
+        },
+        {
+          url: "/images/About/our_vision1.webp",
+          revision: "8574a8f3b4c83f99acf848fbd5e361a3",
+        },
+        {
+          url: "/images/About/our_vision2.webp",
+          revision: "0121bda3b9f460d1ecb033e8a2fa1e53",
+        },
+        {
+          url: "/images/About/our_vision3.webp",
+          revision: "86f116b883c3537c51763c4de0c1a6a9",
+        },
+        {
+          url: "/images/About/samriddhi.webp",
+          revision: "26842cf9edde6d3559ed6c0d5f5a8c91",
+        },
+        {
+          url: "/images/About/sc_bg.png",
+          revision: "26e517122151836c9d6d9c15876ffcad",
+        },
+        {
+          url: "/images/About/shaloo_reddi.webp",
+          revision: "1fb9bf5843e2811446d0ac6b527556a3",
+        },
+        {
+          url: "/images/About/shivam_chawl.webp",
+          revision: "a0a3aa9e8c7da92b7d96a0a344f7109a",
+        },
+        {
+          url: "/images/About/shivam_chawla.jpg",
+          revision: "150ac9f3de99f0409f493a618835c8aa",
+        },
+        {
+          url: "/images/About/shivam_rajotiya-removebg.png",
+          revision: "c73bd804171d69ba359183714530055d",
+        },
+        {
+          url: "/images/About/shivam_rajotiya.webp",
+          revision: "7e3e0575ae23c1b502e8355144810ab1",
+        },
+        {
+          url: "/images/About/siddhant.webp",
+          revision: "af875c7379a1ef7ff2f5723a37ec6043",
+        },
+        {
+          url: "/images/About/sukriti.webp",
+          revision: "2c8a1d2abee5335752269530af3febcf",
+        },
+        {
+          url: "/images/About/tina_sachdeva-removebg-preview.png",
+          revision: "118bcf99937b4d2ece93f60ed4ff2652",
+        },
+        {
+          url: "/images/About/tina_sachdeva.webp",
+          revision: "800690c79585bc2731f576ba0e111d3f",
+        },
+        {
+          url: "/images/Build.webp",
+          revision: "f56e23ba63095e171b818ffd73e655c5",
+        },
+        {
+          url: "/images/DreamForce_Plumjob_designara.webp",
+          revision: "dd44d103c17d354fbc50648a337bdf3e",
+        },
+        {
+          url: "/images/Dreamfox_dxify.webp",
+          revision: "7762871c30039e6dbc005abd86ec0c0f",
+        },
+        {
+          url: "/images/Dreamfox_plumjob.webp",
+          revision: "bf6ce3b808468486c5f5a463e457a086",
+        },
+        {
+          url: "/images/Plumjob_dreamfox.webp",
+          revision: "6b49f62ec7bf08fff1d8e0f5741cbf36",
+        },
+        {
+          url: "/images/Scaled.webp",
+          revision: "ecae9d76ff8cbea6b1376fdfe9075583",
+        },
+        {
+          url: "/images/Started.webp",
+          revision: "4bc7a691bc61fde62c1382b27b26f899",
+        },
+        {
+          url: "/images/about_timeline1.webp",
+          revision: "b1e3611fe3da0646631c806fb61bd38e",
+        },
+        {
+          url: "/images/about_timeline2.webp",
+          revision: "2427b1785339950b0c07e0fe33985c64",
+        },
+        {
+          url: "/images/about_timeline3.webp",
+          revision: "3eb35fe85e26f1e15ec37eebb8e2e586",
+        },
+        {
+          url: "/images/about_timeline4.webp",
+          revision: "9fbb467396f95f713739d9088c141482",
+        },
+        {
+          url: "/images/alliances/cohering.webp",
+          revision: "af4201360f2e38f9bcc7c41e29fb98da",
+        },
+        {
+          url: "/images/alliances/giftcart.webp",
+          revision: "b06a6a400ef1444f93a8cd3a5f714b07",
+        },
+        {
+          url: "/images/alliances/godaddy.webp",
+          revision: "1125c21422efa959562248ff93bc9b42",
+        },
+        {
+          url: "/images/alliances/microsoft.webp",
+          revision: "a3e48b21574916faee3277b83e214795",
+        },
+        {
+          url: "/images/alliances/oracle.webp",
+          revision: "4890154be70a052494c741be00ed4dd4",
+        },
+        {
+          url: "/images/alliances/salesforce.webp",
+          revision: "86a70682f6b4b871cf435f3724c8efd5",
+        },
+        {
+          url: "/images/analytics_dreamfox.webp",
+          revision: "23e90917c2d686aea678bf3a3705291c",
+        },
+        {
+          url: "/images/assimilations_dreamfox.webp",
+          revision: "2742543756fd4a51df4da51c40ee79ee",
+        },
+        {
+          url: "/images/assimilations_marketing.webp",
+          revision: "84af8977a28417d62e423ebbb4fa6f02",
+        },
+        {
+          url: "/images/audacis_dreamfox.webp",
+          revision: "3ed238b359b18bbb6d57efd0b995f348",
+        },
+        {
+          url: "/images/betterbuy.webp",
+          revision: "cf85d000727658e3d6582cd158643a49",
+        },
+        {
+          url: "/images/brand_advisory.webp",
+          revision: "2f20b534f6ec5ea52ccd798202c03c1d",
+        },
+        {
+          url: "/images/case_study/VDC.webp",
+          revision: "39355e4ef5a459bf235d194921b01c9d",
+        },
+        {
+          url: "/images/case_study/betterbuy.webp",
+          revision: "6daa413e74d8513fb055d4a79466ad55",
+        },
+        {
+          url: "/images/case_study/giftcart.webp",
+          revision: "c03ffb82b673b57a892419c9b535b199",
+        },
+        {
+          url: "/images/case_study/indic.webp",
+          revision: "2d7428137760a1101d1d21b0f5f3f781",
+        },
+        {
+          url: "/images/case_study/plumjob.webp",
+          revision: "1e50cc232fb2fcc3a23c73412fdc2d95",
+        },
+        {
+          url: "/images/case_study/sweven.webp",
+          revision: "eb797742fd15b4b2dc2ee0c406555ed5",
+        },
+        {
+          url: "/images/case_study/tekcorp.webp",
+          revision: "753fb8f46b51cc3f23437b9692dd06ce",
+        },
+        {
+          url: "/images/case_study/vsys.webp",
+          revision: "1e6a931ddaac8ca541f8211401069655",
+        },
+        {
+          url: "/images/conversion_dreamfox.webp",
+          revision: "fa5f678a75f30ba484e5dfdae39247ad",
+        },
+        {
+          url: "/images/crosswalk.webp",
+          revision: "fada1c90f649c4338b9716aba4ed9547",
+        },
+        {
+          url: "/images/designara_studio.webp",
+          revision: "a19b11d94caebc8d44c155e2c35c97b0",
+        },
+        {
+          url: "/images/dreamfox_enbrand_branding.webp",
+          revision: "22a57c090b1d3aa6508b0999626c1a26",
+        },
+        {
+          url: "/images/dreamfox_indic.webp",
+          revision: "3068b7de592bcf5a12b883fac72b6bb5",
+        },
+        {
+          url: "/images/dreamfox_sweven.webp",
+          revision: "f868326ee223d3d4f8391272b2fbbe6e",
+        },
+        {
+          url: "/images/dreamfox_tekcorp.webp",
+          revision: "39dcce5165bbeec1daf5f241ce11ca16",
+        },
+        {
+          url: "/images/dreamfox_vsys.webp",
+          revision: "b4deaeba5179ab1301e904ca5d899664",
+        },
+        {
+          url: "/images/dreamfox_yippeemedia.webp",
+          revision: "3d50729bb3ed7723dfe5395199a0fbf0",
+        },
+        {
+          url: "/images/everfox.webp",
+          revision: "63eaffd6f4c7fe3e3094d5e256fd6035",
+        },
+        {
+          url: "/images/folder.svg",
+          revision: "a841ca1141a250e398f3caa29e2c4d35",
+        },
+        {
+          url: "/images/fox.png",
+          revision: "ba2116fb3d75639841172d6c4901ef6a",
+        },
+        {
+          url: "/images/fox1.svg",
+          revision: "92540da58230ddf450c25bff342e9bc6",
+        },
+        {
+          url: "/images/fox2.svg",
+          revision: "19d95ba85ce5e6819730eb2c14b69caf",
+        },
+        {
+          url: "/images/funnel_builder_Stratey_Dreamfox.webp",
+          revision: "3f1d97b43e9fd001a0f373dd771468f5",
+        },
+        {
+          url: "/images/giftcart.com.webp",
+          revision: "4b0eae6227a30e26ff0131263ead38d7",
+        },
+        {
+          url: "/images/giftcart.png",
+          revision: "86c1bed7671287d6bd93434c7f78e028",
+        },
+        {
+          url: "/images/giftcart.webp",
+          revision: "45e19d561dd6377ad87af9ffac94ea12",
+        },
+        {
+          url: "/images/giftcart_media.webp",
+          revision: "0963441645e41b2a3f321aa39afbd327",
+        },
+        {
+          url: "/images/home/ai_digital_marketing.webp",
+          revision: "8d97c2f58711f9bf4a105e1403d30af4",
+        },
+        {
+          url: "/images/home/artwork_and_visuals.webp",
+          revision: "bb75358015593764234c0f2fe3471cce",
+        },
+        {
+          url: "/images/home/assimilations.webp",
+          revision: "ed2546125a73efef992a026d0e9b0a8f",
+        },
+        {
+          url: "/images/home/brand_strategy.webp",
+          revision: "764e763d2e07b500523fcab666174ca8",
+        },
+        {
+          url: "/images/home/brandlara_advisory.webp",
+          revision: "ac5df01958b11cbad761f49c3364d749",
+        },
+        {
+          url: "/images/home/brandlara_advisory_2.webp",
+          revision: "590689b0161c9612e389e946a8186368",
+        },
+        {
+          url: "/images/home/cohering.webp",
+          revision: "30c221a5ac6ac51f6b7ef5f3eb5dacf2",
+        },
+        {
+          url: "/images/home/content_marketing.webp",
+          revision: "5310e5a1dd48675791d4af0e4f0faf21",
+        },
+        {
+          url: "/images/home/designara_studio.webp",
+          revision: "db0a19f42ccff116ad401a12c932f53f",
+        },
+        {
+          url: "/images/home/designara_studio_2.webp",
+          revision: "351946de632d1d8bcc460181fe9dd23d",
+        },
+        {
+          url: "/images/home/ecommerce_dxp.webp",
+          revision: "a1a805a07ba1f14e3e3c74bcd3e02ed6",
+        },
+        {
+          url: "/images/home/experience_design.webp",
+          revision: "60ff14e2803999703157e1da3fb7cba3",
+        },
+        {
+          url: "/images/home/godaddy.webp",
+          revision: "8ecc3c4195e0c4a9ca7faa314183d0d1",
+        },
+        {
+          url: "/images/home/logo_design_services.webp",
+          revision: "fe92bfdb7772d049ffdfdc3b7acbab9d",
+        },
+        {
+          url: "/images/home/marketing_automation.webp",
+          revision: "194f6b56a07dd2fd0180bdd7b7461de7",
+        },
+        {
+          url: "/images/home/microsoft.webp",
+          revision: "eb6f754b4ea91891d4fa78c22fbabe4f",
+        },
+        {
+          url: "/images/home/oracle.webp",
+          revision: "bf527270f995003ef31b15c7ceb2d33f",
+        },
+        {
+          url: "/images/home/salesforce.webp",
+          revision: "d22805e1759b25d1eab917f623932618",
+        },
+        {
+          url: "/images/home/search_marketing.webp",
+          revision: "7f9e14b3808973bcb0ee5288f3e051da",
+        },
+        {
+          url: "/images/home/social_media.webp",
+          revision: "ac36742a42d1e2d2132a8d816673b316",
+        },
+        {
+          url: "/images/home/web_development.webp",
+          revision: "8e7c198aa03e4797d450ebf0a9bbd562",
+        },
+        {
+          url: "/images/home/yippee_media.webp",
+          revision: "2abf399dc0501597f6ec286f79417240",
+        },
+        {
+          url: "/images/indic.webp",
+          revision: "a7ccbb0b9792dc95743fa0a1d89b6e96",
+        },
+        {
+          url: "/images/indic_dreamfox.webp",
+          revision: "7532e9a1e5c4a35caca38e8332ffa4f6",
+        },
+        {
+          url: "/images/innovation.webp",
+          revision: "6d861ac70f030d3ad54e4ea18fccc0d7",
+        },
+        {
+          url: "/images/leads_dreamfox.webp",
+          revision: "60ca6e3ce3b22111e9687d1fcd305009",
+        },
+        {
+          url: "/images/marketing-mix/1.jpg",
+          revision: "949b15cc34aeb3c3107a5a60d6f6eae4",
+        },
+        {
+          url: "/images/marketing-mix/2.jpg",
+          revision: "e6610f437d7c025927eebc190de7fbc7",
+        },
+        {
+          url: "/images/marketing-mix/3.jpg",
+          revision: "831034b47c08824233ed4c3c33a2d551",
+        },
+        {
+          url: "/images/marketing-mix/4.jpg",
+          revision: "d8ecf8a8128354144bbcec9da5ff23fb",
+        },
+        {
+          url: "/images/news.jpg",
+          revision: "3dffdc901056f329ba480acf4e3f9f1b",
+        },
+        {
+          url: "/images/october.webp",
+          revision: "a0ec19f7c22651a197066b8c9c4f9934",
+        },
+        {
+          url: "/images/outlaunch_dreamfox.webp",
+          revision: "df01a229ab2ac197bd08a19f1d6a2967",
+        },
+        {
+          url: "/images/paid_ads_dreamfox.webp",
+          revision: "cc8952092bea0b438a7890afa50b6806",
+        },
+        {
+          url: "/images/plumjob.png",
+          revision: "95625c484461f07578d9f96493f8dec2",
+        },
+        {
+          url: "/images/projects/betterbuy_com.webp",
+          revision: "86c79647e906e53c8a5f1a858b5bcdc4",
+        },
+        {
+          url: "/images/projects/crosswalk.ai.webp",
+          revision: "89fc5f161c19a4400f436b08b2abab1e",
+        },
+        {
+          url: "/images/projects/dreamfox_com.webp",
+          revision: "282b88296ee745ad5d2063f7582c09cc",
+        },
+        {
+          url: "/images/projects/giftcart_com.webp",
+          revision: "1f14fb2e7c44fe7cf530d68605eeb756",
+        },
+        {
+          url: "/images/projects/indic.com.webp",
+          revision: "7369fee706445a02608f7a1f094a9c43",
+        },
+        {
+          url: "/images/projects/plumjob_com.webp",
+          revision: "ac0b7915821f8a62582b230bd46549a5",
+        },
+        {
+          url: "/images/projects/sweven_com.webp",
+          revision: "e4293ba92833ea06e443dbfc74284408",
+        },
+        {
+          url: "/images/projects/tekcorp_com.webp",
+          revision: "cc930202a1b9aec94f97b2db14f80d34",
+        },
+        {
+          url: "/images/projects/thomascook_com.webp",
+          revision: "20fafca1c53e1500c5bac4c708c450eb",
+        },
+        {
+          url: "/images/projects/vsys_com.webp",
+          revision: "f5f70bfe6605c42430d53da924db181d",
+        },
+        {
+          url: "/images/services/analytics_insights.webp",
+          revision: "4273d8c159123ac2db6f619ec24e78ae",
+        },
+        {
+          url: "/images/services/content_creation.webp",
+          revision: "2691aa44cc7de4ef1585ed350ce8f76e",
+        },
+        {
+          url: "/images/services/creative_design.webp",
+          revision: "370272e2c81f25b85fce38a01404a96c",
+        },
+        {
+          url: "/images/services/digital_marketing.webp",
+          revision: "bd13bccda84e2842bc3bb1ba1910efcb",
+        },
+        {
+          url: "/images/services/web_development.webp",
+          revision: "b76fdcb91f3ba5e69781461aed32681b",
+        },
+        {
+          url: "/images/sweven_dreamfox.webp",
+          revision: "4daedf563cf997cea2af9821390c1428",
+        },
+        {
+          url: "/images/sweven_new.webp",
+          revision: "e9b55cc3e856de04486382b7776472ec",
+        },
+        {
+          url: "/images/sweven_old.webp",
+          revision: "78aadc865b11692100f97b5a9e754567",
+        },
+        {
+          url: "/images/vdc.webp",
+          revision: "ba57c07931c3a336d8e521d4ac663763",
+        },
+        {
+          url: "/images/vdc_new.webp",
+          revision: "7d77f83f7afdf1f8ff1a28616d905ddd",
+        },
+        {
+          url: "/images/vdc_old.webp",
+          revision: "dae55c5d07057532b09c256a3579b37e",
+        },
+        {
+          url: "/images/vsys.webp",
+          revision: "7f117cc0349e40c4cabf5fd3fb9be9c6",
+        },
+        {
+          url: "/images/vsys_dreamfox.webp",
+          revision: "c1e18b6706f8eff45fc1ee50798d1efd",
+        },
+        {
+          url: "/images/yippee_media.webp",
+          revision: "0690728f5bf447e0dc90e5fc4a021797",
+        },
+        {
+          url: "/images/yippeemedia_dreamfox.webp",
+          revision: "14d056577e39a15fde0fe66f5a1ae73b",
+        },
+        {
+          url: "/logos/dreamfox_emblem.svg",
+          revision: "cd6f7099a3ece4dbe0295d91ba706117",
+        },
+        {
+          url: "/logos/dreamfox_logo.svg",
+          revision: "7f94f710b52f6f3e421a44829348f119",
+        },
+        {
+          url: "/logos/indic_logo.svg",
+          revision: "0e1bc4f3d5df718ac07572e081a65adf",
+        },
+        {
+          url: "/logos/plumjob_logo.svg",
+          revision: "8a0fc06a8e454ed44b4d787cbb82e1bb",
+        },
+        {
+          url: "/logos/sweven_logo.svg",
+          revision: "3ca41b12b1d30160b1ce9a4bb89d56df",
+        },
+        {
+          url: "/logos/tekcorp_logo.svg",
+          revision: "85e1f7e0100ab57c853631d4795d31a8",
+        },
+        {
+          url: "/logos/vsys_logo.svg",
+          revision: "dbc151a49afe2a2e1a228f570cba6808",
+        },
+        { url: "/manifest.json", revision: "2115293234df2fb3eeb7d916120cd92d" },
+        {
+          url: "/og-images/about.jpg",
+          revision: "0c04b1213101c5e7e4b7d452a2908fe1",
+        },
+        {
+          url: "/og-images/ai_marketing.jpg",
+          revision: "4dbe0caab59b9288056341603b490327",
+        },
+        {
+          url: "/og-images/alliances.jpg",
+          revision: "5fdb141970608f172c590c660db694d8",
+        },
+        {
+          url: "/og-images/betterbuy.jpg",
+          revision: "c3691e0bea895b1e323b4edc3b23708d",
+        },
+        {
+          url: "/og-images/branding.jpg",
+          revision: "f2a75e70fc6c6b3da722f6e90738170e",
+        },
+        {
+          url: "/og-images/careers.jpg",
+          revision: "db93f91f08158d2e6c0dbaf38736f2ca",
+        },
+        {
+          url: "/og-images/contact_us.jpg",
+          revision: "e980999b5ecba27b4cf6d94e9c729a42",
+        },
+        {
+          url: "/og-images/cookie_policy.jpg",
+          revision: "fb492933567833714b0d793694ff9a28",
+        },
+        {
+          url: "/og-images/designare_studio.jpg",
+          revision: "d7d74bb7bb19a1fac6684c9546ecfea5",
+        },
+        {
+          url: "/og-images/disclaimer.jpg",
+          revision: "9611f1876e302b76e19e23062d3980e6",
+        },
+        {
+          url: "/og-images/dxpify_launch.jpg",
+          revision: "295fc67ac05c66bedca35358d527bbae",
+        },
+        {
+          url: "/og-images/enbrand_partnership.jpg",
+          revision: "d26577977f296a1d7a81614d39066ede",
+        },
+        {
+          url: "/og-images/gdpr_policy.jpg",
+          revision: "318a62d30ab82edbbb20fc93edc6c747",
+        },
+        {
+          url: "/og-images/giftcart.jpg",
+          revision: "404043d49657313c878c819a10876e7a",
+        },
+        {
+          url: "/og-images/homepage.jpg",
+          revision: "0ba8f1143ddc0b211dc882f694165f2d",
+        },
+        {
+          url: "/og-images/indic.jpg",
+          revision: "acb002c864731a0d37dcfbc45a9aab95",
+        },
+        {
+          url: "/og-images/news_and_events.jpg",
+          revision: "db30ecbed04e95f59aba67dc531e3885",
+        },
+        {
+          url: "/og-images/plumjob.jpg",
+          revision: "66f11eb34981f7ba3a4327c1465ce57d",
+        },
+        {
+          url: "/og-images/plumjob_brand.jpg",
+          revision: "7e4f57917f035163aa7e70638a63c6e5",
+        },
+        {
+          url: "/og-images/portfolio.jpg",
+          revision: "24dac6abd98be5841da4a3c769507393",
+        },
+        {
+          url: "/og-images/privacy_policy.jpg",
+          revision: "f274be129e3cf2dfc155487c28fd5660",
+        },
+        {
+          url: "/og-images/safe_harbour_policy.jpg",
+          revision: "db7f9f2dc46815990d80aa5aa835f7f0",
+        },
+        {
+          url: "/og-images/services.jpg",
+          revision: "a5c5d88b82bd724069affc3df4f5a1af",
+        },
+        {
+          url: "/og-images/sweven.jpg",
+          revision: "9461478b63267258c7549723da76ef8f",
+        },
+        {
+          url: "/og-images/team.jpg",
+          revision: "d3c689ff732be2bcfd5e447e1b937ad8",
+        },
+        {
+          url: "/og-images/tekcorp.jpg",
+          revision: "dab681f71c80bafe9170c9662a03bb9d",
+        },
+        {
+          url: "/og-images/terms_and_condition.jpg",
+          revision: "199c354fe377238707b10ead793b26ce",
+        },
+        {
+          url: "/og-images/vdc.jpg",
+          revision: "f3784c0cdf37d0c4a131acfee664fdba",
+        },
+        {
+          url: "/og-images/vsys.jpg",
+          revision: "1a89326614919b438b02b3da63a720c6",
+        },
+        {
+          url: "/og-images/yippee_acquisition.jpg",
+          revision: "ddaeae52387dbca54209e4943ed14425",
+        },
+        {
+          url: "/og-images/yippee_media.jpg",
+          revision: "713f3ba20a9aeb22abdbafc4fba1717f",
+        },
+        { url: "/robots.txt", revision: "c92cccebe014a9b3d1ed3d6740674a53" },
+        {
+          url: "/service-worker.js",
+          revision: "674ad927173bf3a49a168f001b49f4cf",
+        },
+        { url: "/sitemap.xml", revision: "09f26d010aff9358b9622ca6557f60c7" },
+        {
+          url: "/svgs/amplify.svg",
+          revision: "5c4ca038761c722057c77992841f11eb",
+        },
+        {
+          url: "/svgs/build.svg",
+          revision: "85ae8cc3ea5683d46fb661b1250a3ce9",
+        },
+        {
+          url: "/svgs/define.svg",
+          revision: "a9135e20f401ae7f438ad7f473cd6729",
+        },
+        {
+          url: "/svgs/design.svg",
+          revision: "289e7cbd8ba9fb14b44b9534afd1c359",
+        },
+        {
+          url: "/svgs/ideate.svg",
+          revision: "611dfc5f5659b4e376d3e28adb064d47",
+        },
+        {
+          url: "/svgs/outer-shape.svg",
+          revision: "9046e06a7d4556ebeeb7c56097c52b07",
+        },
+        {
+          url: "/svgs/outline.svg",
+          revision: "5c58981f2176aee3d5d9be5e48b4d414",
+        },
+        {
+          url: "/svgs/process.svg",
+          revision: "2e401afda640ddcd0d2a0698067ecd1d",
+        },
+        {
+          url: "/terms_and_condition.webp",
+          revision: "b19e2b2fe9ad69aace4070d8a4e3a4b5",
+        },
+        {
+          url: "/videos/0_Car_Drifting_3840x2160.mp4",
+          revision: "7ce2b1adfa0c9c7841d8aa68a416217a",
+        },
+        {
+          url: "/videos/Brand_Design_Dreamfox.mp4",
+          revision: "dac8aa7c5b7a059b5cc031fc4e4b6360",
+        },
+        {
+          url: "/videos/Brand_idendity_DreamFox.mp4",
+          revision: "1509149d78f1341f5a0e7210c8bf9428",
+        },
+        {
+          url: "/videos/DreamFox_BetterBuy.mp4",
+          revision: "b0dc5494e8809f139d8e32f9ddc9a3fe",
+        },
+        {
+          url: "/videos/Dreamfox_Crosswalk.mp4",
+          revision: "17a03f855c65e75f1940df910bba4994",
+        },
+        {
+          url: "/videos/Dreamfox_Everfox.mp4",
+          revision: "7b7bc12cfcfb0bc5138b067e47956e25",
+        },
+        {
+          url: "/videos/Dreamfox_Giftcart.mp4",
+          revision: "63591f392b5d0a848bc54d15f91dc80c",
+        },
+        {
+          url: "/videos/Dreamfox_INDIC.mp4",
+          revision: "4fbbeba1c5077c0c2a3043ef8ba36e45",
+        },
+        {
+          url: "/videos/Dreamfox_October.ai.mp4",
+          revision: "9cd91d30a09c07eb78e4bf40a13f64de",
+        },
+        {
+          url: "/videos/Giftcart.mp4",
+          revision: "fcb9021a52f3de6a2f90c4e07948af2e",
+        },
+        {
+          url: "/videos/betterbuy.mp4",
+          revision: "3784a3e1010f7092c20ab19ba36c7535",
+        },
+        {
+          url: "/videos/vdc.mp4",
+          revision: "2862eaf9f2081fbe1d1ef36d47b39259",
+        },
+        {
+          url: "/virtuos-logo.svg",
+          revision: "c99f0d9af6ce4ca1c49d34e07a6d1254",
+        },
+        {
+          url: "/work/work1.png",
+          revision: "137f73f9817f614d2b3f02e5d33f6926",
+        },
+      ],
+      { ignoreURLParametersMatching: [] }
+    ),
+    e.cleanupOutdatedCaches(),
+    e.registerRoute(
+      "/",
+      new e.NetworkFirst({
+        cacheName: "start-url",
+        plugins: [
+          {
+            cacheWillUpdate: async ({
+              request: e,
+              response: a,
+              event: s,
+              state: i,
+            }) =>
+              a && "opaqueredirect" === a.type
+                ? new Response(a.body, {
+                    status: 200,
+                    statusText: "OK",
+                    headers: a.headers,
+                  })
+                : a,
+          },
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /^https:\/\/fonts\.(?:gstatic)\.com\/.*/i,
+      new e.CacheFirst({
+        cacheName: "google-fonts-webfonts",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 4, maxAgeSeconds: 31536e3 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /^https:\/\/fonts\.(?:googleapis)\.com\/.*/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "google-fonts-stylesheets",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 4, maxAgeSeconds: 604800 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "static-font-assets",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 4, maxAgeSeconds: 604800 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "static-image-assets",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 64, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\/_next\/image\?url=.+$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "next-image",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 64, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:mp3|wav|ogg)$/i,
+      new e.CacheFirst({
+        cacheName: "static-audio-assets",
+        plugins: [
+          new e.RangeRequestsPlugin(),
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:mp4)$/i,
+      new e.CacheFirst({
+        cacheName: "static-video-assets",
+        plugins: [
+          new e.RangeRequestsPlugin(),
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:js)$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "static-js-assets",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:css|less)$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "static-style-assets",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\/_next\/data\/.+\/.+\.json$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: "next-data",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      /\.(?:json|xml|csv)$/i,
+      new e.NetworkFirst({
+        cacheName: "static-data-assets",
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      ({ url: e }) => {
+        if (!(self.origin === e.origin)) return !1;
+        const a = e.pathname;
+        return !a.startsWith("/api/auth/") && !!a.startsWith("/api/");
+      },
+      new e.NetworkFirst({
+        cacheName: "apis",
+        networkTimeoutSeconds: 10,
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 16, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      ({ url: e }) => {
+        if (!(self.origin === e.origin)) return !1;
+        return !e.pathname.startsWith("/api/");
+      },
+      new e.NetworkFirst({
+        cacheName: "others",
+        networkTimeoutSeconds: 10,
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 86400 }),
+        ],
+      }),
+      "GET"
+    ),
+    e.registerRoute(
+      ({ url: e }) => !(self.origin === e.origin),
+      new e.NetworkFirst({
+        cacheName: "cross-origin",
+        networkTimeoutSeconds: 10,
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 32, maxAgeSeconds: 3600 }),
+        ],
+      }),
+      "GET"
+    );
+});
