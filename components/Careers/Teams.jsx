@@ -47,7 +47,7 @@ const Teams = () => {
       role: "DemandGen Executive",
       height: "h-126",
       bgColor: "bg-yellow-200",
-    }
+    },
   ];
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const Teams = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden items-end justify-center ">
           {teamMembers.map((member, index) => (
             <div
-            // href={"/about/careers#openings"}
+              // href={"/about/careers#openings"}
               key={member.role}
               ref={(el) => (teamMembersRef.current[index] = el)}
               className="flex relative  flex-col group items-center cursor-pointer"
@@ -179,10 +179,12 @@ const Teams = () => {
         <div className=" hidden lg:flex items-end justify-center ">
           {teamMembers.map((member, index) => (
             <div
-            href={"/about/careers#openings"}
+              href={"/careers#openings"}
               key={member.name}
               ref={(el) => (teamMembersRef.current[index] = el)}
-              className={`flex relative  flex-col group items-center cursor-pointer ${index === 4 ? "hidden 2xl:block" : ""}`}
+              className={`flex relative  flex-col group items-center cursor-pointer ${
+                index === 4 ? "hidden 2xl:block" : ""
+              }`}
             >
               {/* Cylindrical container with varying heights */}
               <div

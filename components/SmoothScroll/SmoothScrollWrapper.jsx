@@ -33,7 +33,6 @@ const ScrollSmootherWrapper = ({ children }) => {
 
       // Force a complete refresh of all ScrollTrigger instances
       ScrollTrigger.refresh(true);
-
     }, 200); // Increased timeout for more reliable initialization
 
     // Cleanup function
@@ -57,12 +56,8 @@ const ScrollSmootherWrapper = ({ children }) => {
         <div ref={contentRef} className="smooth-content">
           {children}
           <Footer />
-
         </div>
-
-      
       </div>
-      
     </>
   );
 };

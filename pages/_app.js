@@ -9,10 +9,13 @@ import { useEffect } from "react";
 import SEOHead from "@/components/seohead/seohead";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollSmoother from "gsap/dist/ScrollSmoother";
+import { smoothScrollConfig } from "@/components/SmoothScroll/SmootScrollConfig";
+import Footer from "@/components/Homepage/Footer";
+import Navbar from "@/components/Navbar/Navbar2";
 
-// Register GSAP plugins
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 }
 
 // Dynamically import WebGL component to avoid SSR issues
@@ -20,27 +23,33 @@ const WebGLCursorEffect = dynamic(() => import("@/components/Webgl/webgl"), {
   ssr: false,
 });
 
-const ScrollSmootherWrapper = dynamic(
-  () => import("@/components/SmoothScroll/SmoothScrollWrapper"),
-  {
-    ssr: false,
-  }
-);
-
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  
+  useEffect(() => {
+    // Initialize ScrollSmoother with config
+    let smoother = ScrollSmoother.create(smoothScrollConfig);
+
+    // You can access smoother globally if needed for ScrollTrigger
+    // Example: smoother.scrollTo(0, true);
+
+    return () => {
+      // Cleanup on unmount
+      if (smoother) {
+        smoother.kill();
+      }
+    };
+  }, []);
   useEffect(() => {
     const handleRouteChangeStart = () => {
       // Kill all GSAP animations and ScrollTriggers on route change
       gsap.killTweensOf("*");
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
 
     const handleRouteChangeComplete = () => {
       // Scroll to top when route changes
       window.scrollTo(0, 0);
-      
+
       // Refresh ScrollTrigger after route change
       setTimeout(() => {
         ScrollTrigger.refresh();
@@ -97,9 +106,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <SEOHead />
       {/* <SmoothScroll> */}
       <ApolloProvider client={client}>
-        <ScrollSmootherWrapper>
-          <Component {...pageProps} />
-        </ScrollSmootherWrapper>
+        {/* <ScrollSmootherWrapper> */}
+        <Navbar />
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <Component {...pageProps} />
+            <Footer />
+          </div>{" "}
+        </div>
+
+        {/* <Component {...pageProps} /> */}
+        {/* </ScrollSmootherWrapper> */}
       </ApolloProvider>
       {/* </SmoothScroll> */}
     </>

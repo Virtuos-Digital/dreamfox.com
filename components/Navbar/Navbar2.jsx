@@ -314,10 +314,10 @@ const Navbar = () => {
                     </a>
 
                     <a
-                      href="/about/careers"
+                      href="/careers"
                       onClick={() => setDropdownOpenAbout(false)}
                       className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/about/careers")
+                        isActive("/careers")
                           ? "text-[#fff] bg-white/10"
                           : "text-white hover:text-[#fff]"
                       }`}
@@ -615,9 +615,9 @@ const Navbar = () => {
 
                       <a
                         onClick={closeMenu}
-                        href="/about/careers"
+                        href="/careers"
                         className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/about/careers")
+                          isActive("/careers")
                             ? "text-[#fff] bg-white/10"
                             : "text-white hover:text-[#fff]"
                         }`}

@@ -36,7 +36,6 @@ const CARD_DATA = [
   },
 ];
 
-
 const Offerings = () => {
   useEffect(() => {
     const wrappers = document.querySelectorAll(".card-wrapper");
@@ -107,7 +106,7 @@ const Offerings = () => {
             }`}
             key={idx}
           >
-            <div className="card w-full h-full rounded- overflow-hidden transition-all duration-500 relative group hover:scale-105">
+            <div className="card w-full h-full rounded- overflow-hidden transition-all duration-500 relative group hover:scale-105 will-change-transform shadow-2xl border border-white/20">
               {/* Background Image with Parallax Effect */}
               <div className="absolute inset-0 overflow-hidden">
                 <img
@@ -176,7 +175,6 @@ const Offerings = () => {
 
               {/* Decorative Elements */}
               <div className="absolute top-8 right-8 w-32 h-32 border border-white/10 rounded-full opacity-20 group-hover:scale-110 transition-transform duration-500"></div>
-              
             </div>
           </div>
         ))}
