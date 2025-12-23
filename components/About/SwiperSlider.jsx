@@ -53,7 +53,7 @@ const TeamSlider = () => {
       description: "VP & Senior HR",
     },
     {
-      url: "/images/About/Hashim_Marazi.png",
+      url: "/images/About/Hashim.png",
 
       name: "Hashim Marazi",
       description: "Project Manager",

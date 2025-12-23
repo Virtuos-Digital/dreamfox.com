@@ -842,7 +842,7 @@ define(["./workbox-4754cb34"], function (e) {
           revision: "21288826e021406ecd993f86f0ce71b9",
         },
         {
-          url: "/images/About/Hashim_Marazi.png",
+          url: "/images/About/Hashim.png",
           revision: "ac042352b485b21e46f03f66762f9260",
         },
         {
