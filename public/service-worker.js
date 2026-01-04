@@ -35,6 +35,12 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Only cache http and https requests
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.protocol !== 'http:' && requestUrl.protocol !== 'https:') {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(response => {
       if (response) {
