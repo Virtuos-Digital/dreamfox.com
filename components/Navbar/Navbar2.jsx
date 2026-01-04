@@ -314,7 +314,7 @@ const Navbar = () => {
                     </a>
 
                     <a
-                      href="careers"
+                      href="/careers"
                       onClick={() => setDropdownOpenAbout(false)}
                       className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
                         isActive("/careers")
