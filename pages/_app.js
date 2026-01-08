@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import SEOHead from "@/components/seohead/seohead";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -27,43 +28,37 @@ const ScrollSmootherWrapper = dynamic(
   }
 );
 
-const PWAInstallPrompt = dynamic(
-  () => import("@/components/PWA/PWAInstallPrompt"),
-  {
-    ssr: false,
-  }
-);
-
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  
+
   useEffect(() => {
-    // Register Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then(registration => {
-          console.log('Service Worker registered:', registration);
-        })
-        .catch(error => {
-          console.log('Service Worker registration failed:', error);
-        });
+    // Unregister existing service workers to prevent conflicts
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
     }
 
     const handleRouteChangeStart = () => {
       // Kill all GSAP animations and ScrollTriggers on route change
-      gsap.killTweensOf("*");
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      if (typeof window !== 'undefined') {
+        gsap.killTweensOf("*");
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      }
     };
 
     const handleRouteChangeComplete = () => {
       // Scroll to top when route changes
-      window.scrollTo(0, 0);
-      
-      // Refresh ScrollTrigger after route change
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100);
+      if (typeof window !== 'undefined') {
+        window.scrollTo(0, 0);
+
+        // Refresh ScrollTrigger after route change
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      }
     };
 
     // Subscribe to route change events
@@ -114,14 +109,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <WebGLCursorEffect />
       <SEOHead />
-      {/* <PWAInstallPrompt /> */}
-      {/* <SmoothScroll> */}
+      {/* <ErrorBoundary> */}
       <ApolloProvider client={client}>
         <ScrollSmootherWrapper>
           <Component {...pageProps} />
         </ScrollSmootherWrapper>
       </ApolloProvider>
-      {/* </SmoothScroll> */}
+      {/* </ErrorBoundary> */}
     </>
   );
 }

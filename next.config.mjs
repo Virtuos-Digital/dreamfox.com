@@ -1,9 +1,19 @@
 /** @type {import('next').NextConfig} */
-import withPWA from 'next-pwa';
 
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['gsap'],
+  swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
+
+  // Optimize production builds
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+
   images: {
     remotePatterns: [
       {
@@ -24,7 +34,7 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-      
+
       {
         protocol: 'https',
         hostname: 'via.placeholder.com',
@@ -45,19 +55,23 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
     }
+
+    // Prevent code from running on server that shouldn't
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+
     return config
   }
 };
 
-const pwaConfig = withPWA({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
-  register: false,
-  skipWaiting: false,
-});
-
-export default pwaConfig(nextConfig);
+export default nextConfig;

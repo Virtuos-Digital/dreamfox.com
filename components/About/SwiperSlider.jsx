@@ -1,13 +1,21 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import { FaUser, FaQuoteLeft } from "react-icons/fa";
 import TextReveal from "../Text Reveal/textreveal";
 
 const TeamSlider = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
-    new Swiper(".swiper", {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const swiper = new Swiper(".swiper", {
       effect: "coverflow",
       loop: true,
       grabCursor: true,
@@ -38,7 +46,11 @@ const TeamSlider = () => {
         2200: { slidesPerView: 4.5 },
       },
     });
-  }, []);
+
+    return () => {
+      if (swiper) swiper.destroy();
+    };
+  }, [isMounted]);
 
   const slides = [
     {
@@ -101,7 +113,26 @@ const TeamSlider = () => {
     },
   ];
   const multipleSlides = [...slides, ...slides, ...slides];
-  // console.log(multipleSlides, "multipleSlides");
+
+  // Don't render until mounted to avoid SSR/hydration issues
+  if (!isMounted) {
+    return (
+      <div className="min-h-[50vh] py-16 lg:py-32" id="team">
+        <TextReveal
+          animation="rotateX"
+          stagger={0.1}
+          duration={0.8}
+          className=" text-120 text-white text-center font-semibold mb-8 2xl:mb-16"
+        >
+          Meet The Team
+        </TextReveal>
+        <div className="w-full h-[500px] flex items-center justify-center">
+          <p className="text-white">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <style>{`
@@ -196,7 +227,11 @@ const TeamSlider = () => {
               >
                 <div className="info">
                   <div className="name ">
-                    <FaUser /> <p className="text-[12px] sm:text-[16px] lg:text-[20px] xl:text-[24px] 3xl:text-[30px] 5xl:text-[40px] "> {slide.name}</p>
+                    <FaUser />{" "}
+                    <p className="text-[12px] sm:text-[16px] lg:text-[20px] xl:text-[24px] 3xl:text-[30px] 5xl:text-[40px] ">
+                      {" "}
+                      {slide.name}
+                    </p>
                   </div>
                   <div className="desc">
                     <FaQuoteLeft /> {slide.description}
