@@ -128,11 +128,11 @@ const NewsroomPage = () => {
 
                   {/* Logos */}
                   <Image
-                    src={"/images/dreamfox_yippeemedia.webp"}
-                    alt="News"
+                    src={"/images/Agency_ae_News_Release.webp"}
+                    alt="DreamFox Acquires Agency.ae"
                     width={600}
                     height={500}
-                    className="w-full h-auto object-cover rounded-2xl"
+                    className="w-full h-auto  object-cover  rounded-2xl"
                   />
                 </div>
               </div>
@@ -145,46 +145,27 @@ const NewsroomPage = () => {
                   </span>
                   |
                   <span className="bg-transparent text-white border  px-3 py-1 rounded-full text-xs lex items-center justify-center font-medium">
-                    COMPANY NEWS
+                    ACQUISITION
                   </span>
                 </div>
-                <p
-                  className="text-30 mt-4 sm:mt-10 font-light text-gray-50 mb-4 sm:mb-6 leading-tight hover:text-gray-100 transition-colors duration-300"
-                  // animation="rotateX"
-                  // stagger={0.1}
-                  // delay={0.1}
-                  // duration={0.5}
-                >
-                  {/* <h2 c> */}
-                  DreamFox Acquires Yippee Media — Expanding the Creative
-                  Intelligence Frontier
-                  {/* </h2> */}
+                <p className="text-30 mt-4 sm:mt-10 font-light text-gray-50 mb-4 sm:mb-6 leading-tight hover:text-gray-100 transition-colors duration-300">
+                  DreamFox Acquires Agency.ae to Launch UAE&apos;s
+                  Next-Generation Agentic Agency Platform
                 </p>
                 <p className="text-white line-clamp-3 text-16 mb-6 leading-relaxed">
-                  DreamFox, the Digital + AI Marketing Agency, today announced
-                  the successful acquisition of Yippee Media, a fast-rising
-                  creative communications company. The move strengthens
-                  DreamFox’s integrated marketing and digital design
-                  capabilities across global markets.
+                  DreamFox announces the strategic acquisition of Agency.ae,
+                  marking its official expansion into the UAE and the broader
+                  Middle East market — launching the region&apos;s first
+                  AI-native and agentic-powered digital agency ecosystem.
                 </p>
                 <div className="flex items-center gap-3 mb-6 sm:mb-10">
-                  {/* <div className="w-10 h-10 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold">V</span>
-                  </div> */}
                   <div className="text-gray-50">
-                    {/* <span className="text-sm">Written by </span>
-                    <span className="font-medium text-gray-100">
-                      Venky Vijay Reddi
-                    </span> */}
-                    <span className="text-sm">
-                      {" "}
-                      November 14, 2025, Gurugram
-                    </span>
+                    <span className="text-sm">May 12, 2026, Dubai</span>
                   </div>
                 </div>
 
                 <Link
-                  href={`/news-events/dreamfox-acquires-yippee-media`}
+                  href={`/news-events/dreamfox-acquires-agencyae-uae-agentic-agency-platform`}
                   className="text-[#fff] hover:bg-transparent hover:border hover:text-white border-white border-3 sm:px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg group px-6"
                 >
                   Read More

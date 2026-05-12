@@ -13,8 +13,36 @@ const NewsCategory = () => {
   // Dummy news data
   // Updated news data with real DreamFox content
   const newsData = [
+    // {
+    //   id: 1,
+    //   title:
+    //     "DreamFox Acquires Agency.ae to Launch UAE's Next-Generation Agentic Agency Platform",
+    //   category: "Acquisition",
+    //   tags: ["ACQUISITION", "PRESS RELEASES"],
+    //   author: "DreamFox Team",
+    //   slug: "dreamfox-acquires-agencyae-uae-agentic-agency-platform",
+    //   date: "May 12, 2026",
+    //   image: "/images/dreamfox_yippeemedia.webp",
+    //   imageAlt: "DreamFox acquires Agency.ae UAE agentic platform",
+    //   excerpt:
+    //     "DreamFox announces the strategic acquisition of Agency.ae, marking its official expansion into the UAE and the broader Middle East market — launching the region's first AI-native and agentic-powered digital agency ecosystem.",
+    // },
     {
-      id: 1,
+      id: 2,
+      title:
+        "DreamFox Acquires Yippee Media — Expanding the Creative Intelligence Frontier",
+      category: "Acquisition",
+      tags: ["ACQUISITION", "COMPANY NEWS"],
+      author: "DreamFox Team",
+      slug: "dreamfox-acquires-yippee-media",
+      date: "Nov 14, 2025",
+      image: "/images/dreamfox_yippeemedia.webp",
+      imageAlt: "DreamFox acquires Yippee Media creative intelligence",
+      excerpt:
+        "DreamFox, the Digital + AI Marketing Agency, today announced the successful acquisition of Yippee Media, a fast-rising creative communications company. The move strengthens DreamFox's integrated marketing and digital design capabilities across global markets.",
+    },
+    {
+      id: 3,
       title:
         "DreamFox + EnBrand Unite to Offer Integrated Branding and Digital Experience Solutions",
       category: "Partnership",
@@ -29,7 +57,7 @@ const NewsCategory = () => {
         "DreamFox announces strategic collaboration with EnBrand to deliver integrated branding, experience design, and AI-powered marketing under one umbrella, positioning as a holistic growth partner for enterprises.",
     },
     {
-      id: 2,
+      id: 4,
       title:
         "DreamFox Develops PlumJob.com Brand Through Its Designara™ Experience Services",
       category: "Product Launch",
@@ -44,7 +72,7 @@ const NewsCategory = () => {
         "DreamFox unveils PlumJob.com, a next-generation HRTech and Talent Experience platform designed for the modern technology workforce, built through Designara™ Experience Design practice.",
     },
     {
-      id: 3,
+      id: 5,
       title:
         "PlumJob to Launch Dxpify — DXP-as-a-Service Platform Developed by DreamFox",
       category: "Technology",
@@ -63,6 +91,7 @@ const NewsCategory = () => {
 
   const categories = [
     "All Categories",
+    "Acquisition",
     "Partnership",
     "Product Launch",
     "Technology",
@@ -76,7 +105,7 @@ const NewsCategory = () => {
     const matchesSearch =
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.tags.some((tag) =>
-        tag.toLowerCase().includes(searchQuery.toLowerCase())
+        tag.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     return matchesCategory && matchesSearch;
   });
