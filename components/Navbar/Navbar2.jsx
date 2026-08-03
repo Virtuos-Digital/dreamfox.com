@@ -1,9 +1,145 @@
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import {
+  BookOpenIcon,
+  BriefcaseIcon,
+  ChevronDownIcon,
+  NewspaperIcon,
+  PaintBrushIcon,
+  PuzzlePieceIcon,
+  RocketLaunchIcon,
+  SparklesIcon,
+  Squares2X2Icon,
+  UsersIcon,
+  VideoCameraIcon,
+} from "@heroicons/react/24/outline";
 import { HomeIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 // import a from "next/a";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
+
+const ABOUT_LINKS = [
+  {
+    href: "/about",
+    label: "Background",
+    description: "Our Story & Vision",
+    Icon: BookOpenIcon,
+  },
+  {
+    href: "/about/team",
+    label: "Our Team",
+    description: "The People Behind The Work",
+    Icon: UsersIcon,
+  },
+  {
+    href: "/careers",
+    label: "Careers",
+    description: "Join The Pack",
+    Icon: BriefcaseIcon,
+  },
+  {
+    href: "/about/alliances",
+    label: "Alliances",
+    description: "Partners & Technology Allies",
+    Icon: PuzzlePieceIcon,
+  },
+  {
+    href: "/news-events",
+    label: "News & Events",
+    description: "Latest Updates & Press",
+    Icon: NewspaperIcon,
+  },
+];
+
+const SERVICE_LINKS = [
+  {
+    href: "/services",
+    label: "Our Work",
+    description: "Everything We Do",
+    Icon: Squares2X2Icon,
+  },
+  {
+    href: "/services/brand-advisory",
+    label: "Branding",
+    description: "Identity & Brand Strategy",
+    Icon: SparklesIcon,
+  },
+  {
+    href: "/services/design-studio",
+    label: "Design",
+    description: "Experience-Led Digital Design",
+    Icon: PaintBrushIcon,
+  },
+  {
+    href: "/services/digital-marketing",
+    label: "AI Marketing",
+    description: "AI-Driven Growth & Performance",
+    Icon: RocketLaunchIcon,
+  },
+  {
+    href: "/services/digital-media-mix",
+    label: "Media",
+    description: "Content, PR & Storytelling",
+    Icon: VideoCameraIcon,
+  },
+];
+
+/* Menu row: icon tile — label — tagline */
+const MenuRow = ({ item, active, onSelect }) => {
+  const { href, label, description, Icon } = item;
+
+  return (
+    <a
+      href={href}
+      onClick={onSelect}
+      className="group/row flex items-center gap-4 rounded-xl px-3 py-3 transition-colors duration-300 ease-out hover:bg-white/[0.06]"
+    >
+      <span
+        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 ${
+          active
+            ? "bg-[#ec466f]/15"
+            : "bg-white/[0.06] group-hover/row:bg-[#ec466f]/15"
+        }`}
+      >
+        <Icon className="h-5 w-5 text-[#ff6b9d]" />
+      </span>
+
+      <span className="flex-1">
+        <span
+          className={`block text-[17px] font-medium leading-tight transition-colors duration-300 ${
+            active ? "text-[#ff6b9d]" : "text-white group-hover/row:text-[#ff6b9d]"
+          }`}
+        >
+          {label}
+        </span>
+        <span className="mt-1 block text-[13px] leading-snug text-white/40 transition-colors duration-300 group-hover/row:text-white/60">
+          {description}
+        </span>
+      </span>
+    </a>
+  );
+};
+
+/* Desktop dropdown panel */
+const DropdownPanel = ({ items, isOpen, currentPath, onSelect }) => (
+  <div
+    className={`absolute top-10 left-1/2 mt-3 w-88 -translate-x-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a]/95 shadow-2xl shadow-black/60 backdrop-blur-2xl transition-all duration-500 ease-out ${
+      isOpen
+        ? "visible translate-y-0 scale-100 opacity-100"
+        : "invisible -translate-y-4 scale-95 opacity-0"
+    }`}
+  >
+    <div className="p-2">
+      {items.map((item) => (
+        <MenuRow
+          key={item.href}
+          item={item}
+          active={item.href === currentPath}
+          onSelect={onSelect}
+        />
+      ))}
+    </div>
+  </div>
+);
 
 const Navbar = () => {
   const router = useRouter();
@@ -263,6 +399,9 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#ec466f] to-[#ff6b9d] group-hover:w-full transition-all duration-500 ease-out"></span>
                 </p>
 
+                {/* Invisible bridge so the menu survives the gap on hover */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 h-6 w-44" />
+
                 {/* Triangle pointer */}
                 <div
                   className={`absolute top-10 left-1/2 -translate-x-1/2 transition-all duration-500 ease-out ${
@@ -275,79 +414,19 @@ const Navbar = () => {
                     width="20"
                     height="10"
                     viewBox="0 0 20 10"
-                    className="fill-[#ff6b9d] drop-shadow-lg"
+                    className="fill-[#0a0a0a] drop-shadow-lg"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M10 0L20 10H0L10 0Z" />
                   </svg>
                 </div>
 
-                <div
-                  className={`absolute top-10 left-1/2 -translate-x-1/2  mt-2 w-64 bg-gradient-to-t from-[#ec466f] to-[#ff6b9d] backdrop-blur-xl rounded shadow-2xl  overflow-hidden transition-all duration-500 ease-out transform ${
-                    dropdownOpenAbout
-                      ? "opacity-100 translate-y-0 scale-100 visible"
-                      : "opacity-0 -translate-y-4 scale-95 invisible"
-                  }`}
-                >
-                  <div className="p-2">
-                    <a
-                      href="/about"
-                      onClick={() => setDropdownOpenAbout(false)}
-                      className={`block px-6 uppercase py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/about")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Background
-                    </a>
-                    <a
-                      href="/about/team"
-                      onClick={() => setDropdownOpenAbout(false)}
-                      className={`block px-6 uppercase py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/about/team")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Our Team
-                    </a>
-
-                    <a
-                      href="/careers"
-                      onClick={() => setDropdownOpenAbout(false)}
-                      className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/careers")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Careers
-                    </a>
-                    <a
-                      href="/about/alliances"
-                      onClick={() => setDropdownOpenAbout(false)}
-                      className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/about/alliances")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Alliances
-                    </a>
-                    <a
-                      href="/news-events"
-                      onClick={() => setDropdownOpenAbout(false)}
-                      className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/news-events")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      News & Events
-                    </a>
-                  </div>
-                </div>
+                <DropdownPanel
+                  items={ABOUT_LINKS}
+                  isOpen={dropdownOpenAbout}
+                  currentPath={router.pathname}
+                  onSelect={() => setDropdownOpenAbout(false)}
+                />
               </div>
 
               {/* Services Dropdown */}
@@ -377,6 +456,9 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#ec466f] to-[#ff6b9d] group-hover:w-full transition-all duration-500 ease-out"></span>
                 </p>
 
+                {/* Invisible bridge so the menu survives the gap on hover */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 h-6 w-44" />
+
                 {/* Triangle pointer */}
                 <div
                   className={`absolute top-10 left-1/2 -translate-x-1/2 transition-all duration-500 ease-out ${
@@ -389,79 +471,19 @@ const Navbar = () => {
                     width="20"
                     height="10"
                     viewBox="0 0 20 10"
-                    className="fill-[#ff6b9d] drop-shadow-lg"
+                    className="fill-[#0a0a0a] drop-shadow-lg"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path d="M10 0L20 10H0L10 0Z" />
                   </svg>
                 </div>
 
-                <div
-                  className={`absolute top-10 left-1/2 -translate-x-1/2  mt-2 w-64 bg-gradient-to-t from-[#ec466f] to-[#ff6b9d] backdrop-blur-xl rounded shadow-2xl  overflow-hidden transition-all duration-500 ease-out transform ${
-                    dropdownOpen
-                      ? "opacity-100 translate-y-0 scale-100 visible"
-                      : "opacity-0 -translate-y-4 scale-95 invisible"
-                  }`}
-                >
-                  <div className="p-2">
-                    <a
-                      href="/services"
-                      onClick={() => setDropdownOpen(false)}
-                      className={`block px-6 uppercase py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        router.pathname === "/services"
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Our Work
-                    </a>
-                    <a
-                      href="/services/brand-advisory"
-                      onClick={() => setDropdownOpen(false)}
-                      className={`block px-6 uppercase py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/services/brand-advisory")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Branding
-                    </a>
-
-                    <a
-                      href="/services/design-studio"
-                      onClick={() => setDropdownOpen(false)}
-                      className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/services/design-studio")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Design
-                    </a>
-                    <a
-                      href="/services/digital-marketing"
-                      onClick={() => setDropdownOpen(false)}
-                      className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/services/digital-marketing")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Ai Marketing
-                    </a>
-                    <a
-                      href="/services/digital-media-mix"
-                      onClick={() => setDropdownOpen(false)}
-                      className={`block uppercase px-6 py-3 font-medium text-base text-center transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                        isActive("/services/digital-media-mix")
-                          ? "text-[#fff] bg-white/10"
-                          : "text-white hover:text-[#fff]"
-                      }`}
-                    >
-                      Media
-                    </a>
-                  </div>
-                </div>
+                <DropdownPanel
+                  items={SERVICE_LINKS}
+                  isOpen={dropdownOpen}
+                  currentPath={router.pathname}
+                  onSelect={() => setDropdownOpen(false)}
+                />
               </div>
 
               <a
@@ -581,71 +603,23 @@ const Navbar = () => {
                     />
                   </button>
 
-                  {/* Mobile Services Submenu */}
+                  {/* Mobile About Submenu */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-out ${
                       dropdownOpenAbout
-                        ? "max-h-64 opacity-100 mt-2"
+                        ? "max-h-136 opacity-100 mt-2"
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="p-2">
-                      <a
-                        onClick={closeMenu}
-                        href="/about"
-                        className={`block px-6 uppercase py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/about")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Background
-                      </a>
-                      <a
-                        onClick={closeMenu}
-                        href="/about/team"
-                        className={`block px-6 uppercase py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/about/team")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Our Team
-                      </a>
-
-                      <a
-                        onClick={closeMenu}
-                        href="/careers"
-                        className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/careers")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Careers
-                      </a>
-                      <a
-                        onClick={closeMenu}
-                        href="/about/alliances"
-                        className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/about/alliances")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Alliances
-                      </a>
-                      <a
-                        onClick={closeMenu}
-                        href="/news-events"
-                        className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/news-events")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        News & Events
-                      </a>
+                    <div className="ml-2 space-y-1 border-l border-white/10 pl-2">
+                      {ABOUT_LINKS.map((item) => (
+                        <MenuRow
+                          key={item.href}
+                          item={item}
+                          active={isActive(item.href)}
+                          onSelect={closeMenu}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -668,67 +642,19 @@ const Navbar = () => {
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-out ${
                       dropdownOpen
-                        ? "max-h-64 opacity-100 mt-2"
+                        ? "max-h-136 opacity-100 mt-2"
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="p-2">
-                      <a
-                        onClick={closeMenu}
-                        href="/services"
-                        className={`block px-6 uppercase py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          router.pathname === "/services"
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Our Work
-                      </a>
-                      <a
-                        onClick={closeMenu}
-                        href="/services/brand-advisory"
-                        className={`block px-6 uppercase py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/services/brand-advisory")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Branding
-                      </a>
-
-                      <a
-                        onClick={closeMenu}
-                        href="/services/design-studio"
-                        className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/services/design-studio")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Design
-                      </a>
-                      <a
-                        onClick={closeMenu}
-                        href="/services/digital-marketing"
-                        className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/services/digital-marketing")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Ai Marketing
-                      </a>
-                      <a
-                        onClick={closeMenu}
-                        href="/services/digital-media-mix"
-                        className={`block uppercase px-6 py-3 font-medium text-base transition-all duration-300 ease-out rounded transform hover:scale-110 ${
-                          isActive("/services/digital-media-mix")
-                            ? "text-[#fff] bg-white/10"
-                            : "text-white hover:text-[#fff]"
-                        }`}
-                      >
-                        Media
-                      </a>
+                    <div className="ml-2 space-y-1 border-l border-white/10 pl-2">
+                      {SERVICE_LINKS.map((item) => (
+                        <MenuRow
+                          key={item.href}
+                          item={item}
+                          active={isActive(item.href)}
+                          onSelect={closeMenu}
+                        />
+                      ))}
                     </div>
                   </div>
                 </div>
