@@ -61,8 +61,7 @@ export default async function handler(req, res) {
       },
     };
 
-    // Replace with your GraphQL endpoint
-    const response = await fetch("https://api.staging.myvirtuos.com", {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
