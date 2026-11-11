@@ -1,88 +1,84 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { useMutation } from "@apollo/client";
-import { SUBMIT_FORM } from "@/ContactUS/queries";
+import {
+  LIMITS,
+  validateContactField,
+  validateContactForm,
+} from "@/lib/validation/contactForm";
+import {
+  CONTACT_MESSAGES,
+  ContactSubmitError,
+  TURNSTILE_SITE_KEY,
+  submitDreamfoxContactUs,
+} from "@/lib/contact/dreamfoxContactApi";
+import { useTurnstile } from "./useTurnstile";
+
+const INITIAL_FORM = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  subject: "",
+  message: "",
+  website: "", // honeypot, see the hidden field in the form
+};
+
+const SUCCESS_MESSAGE = "Thanks for reaching out! Your message has been sent.";
+const TURNSTILE_REQUIRED =
+  "Please complete the security check above the button, then try again.";
+// After a 429, keep the button disabled for a while to stop repeat clicks.
+const RATE_LIMIT_COOLDOWN_MS = 30_000;
+
+const inputClass = (hasError, extra = "") =>
+  `relative w-full bg-white/10 backdrop-blur-2xl border rounded-2xl px-6 py-4 text-white placeholder-gray-300 focus:outline-none focus:bg-white/15 transition-all duration-300 group-hover:bg-white/12 shadow-lg ${
+    hasError
+      ? "border-red-400/70 focus:border-red-400"
+      : "border-white/20 focus:border-white/40"
+  } ${extra}`;
+
+// Visual marker for required fields. Screen readers already announce
+// "required" from the input's `required` attribute, so this is hidden from them.
+function RequiredMark() {
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-lg leading-none font-semibold text-[#E7308F]"
+    >
+      *
+    </span>
+  );
+}
+
+function FieldError({ name, message }) {
+  if (!message) return null;
+  return (
+    <p id={`contact-${name}-error`} className="mt-2 px-2 text-sm text-red-300">
+      {message}
+    </p>
+  );
+}
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    company: "",
-    email: "",
-    phoneNumber: "",
-    message: "",
-    designation: "",
-    subject: "",
-    country: "",
-    city: "",
-    address: "",
-  });
-
+  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [locationData, setLocationData] = useState({});
+  const [isCoolingDown, setIsCoolingDown] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   const containerRef = useRef(null);
   const formRef = useRef(null);
   const leftSideRef = useRef(null);
+  const cooldownTimerRef = useRef(null);
 
-  // Apollo Client mutation
-  const [submitForm, { loading: isSubmitting }] = useMutation(SUBMIT_FORM, {
-    onCompleted: (data) => {
-      setSubmitStatus("success");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        company: "",
-        email: "",
-        phoneNumber: "",
-        message: "",
-        designation: "",
-        subject: "",
-        country: "",
-        city: "",
-        address: "",
-      });
-
-      // Success animation - only run on client
-      if (isClient && formRef.current) {
-        gsap.to(formRef.current, {
-          scale: 1.02,
-          duration: 0.3,
-          yoyo: true,
-          repeat: 1,
-          ease: "power2.inOut",
-        });
-      }
-    },
-    onError: (error) => {
-      console.error("Form submission error:", error);
-      setSubmitStatus("error");
-    },
-  });
+  const turnstile = useTurnstile(TURNSTILE_SITE_KEY);
 
   // Check if we're on client side
   useEffect(() => {
     setIsClient(true);
+    return () => clearTimeout(cooldownTimerRef.current);
   }, []);
-
-  // Get user location and IP data
-  useEffect(() => {
-    if (!isClient) return; // Only run on client
-
-    const fetchLocationData = async () => {
-      try {
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
-        setLocationData(data);
-      } catch (error) {
-        console.error("Failed to fetch location data:", error);
-      }
-    };
-
-    fetchLocationData();
-  }, [isClient]);
 
   useEffect(() => {
     if (!isClient) return; // Only run animations on client
@@ -109,11 +105,83 @@ export default function ContactUs() {
       ...prev,
       [name]: value,
     }));
+    // Re-check as they type only once a field has been visited, so errors
+    // don't appear before the visitor has finished typing.
+    if (touched[name]) {
+      setErrors((prev) => ({ ...prev, [name]: validateContactField(name, value) }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    setErrors((prev) => ({ ...prev, [name]: validateContactField(name, value) }));
+  };
+
+  const fieldProps = (name) => ({
+    id: `contact-${name}`,
+    name,
+    value: formData[name],
+    onChange: handleInputChange,
+    onBlur: handleBlur,
+    "aria-invalid": errors[name] ? "true" : "false",
+    "aria-describedby": errors[name] ? `contact-${name}-error` : undefined,
+  });
+
+  const showSuccess = () => {
+    setSubmitStatus({ type: "success", message: SUCCESS_MESSAGE });
+    setFormData(INITIAL_FORM);
+    setErrors({});
+    setTouched({});
+
+    // Success animation - only run on client
+    if (isClient && formRef.current) {
+      gsap.to(formRef.current, {
+        scale: 1.02,
+        duration: 0.3,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.inOut",
+      });
+    }
+  };
+
+  const startCooldown = () => {
+    setIsCoolingDown(true);
+    clearTimeout(cooldownTimerRef.current);
+    cooldownTimerRef.current = setTimeout(
+      () => setIsCoolingDown(false),
+      RATE_LIMIT_COOLDOWN_MS
+    );
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting || isCoolingDown) return;
     setSubmitStatus(null);
+
+    const form = e.currentTarget;
+    const { data, errors: validationErrors, isValid } = validateContactForm(formData);
+    setErrors(validationErrors);
+    setTouched(Object.fromEntries(Object.keys(INITIAL_FORM).map((key) => [key, true])));
+    if (!isValid) {
+      const firstInvalid = Object.keys(validationErrors)[0];
+      form.elements.namedItem(firstInvalid)?.focus();
+      return;
+    }
+
+    // Honeypot: the "website" field is hidden from people, so only bots fill
+    // it. Show success so they have no signal to adapt to, but send nothing.
+    if (formData.website) {
+      showSuccess();
+      return;
+    }
+
+    const turnstileToken = turnstile.getToken();
+    if (!turnstileToken) {
+      setSubmitStatus({ type: "error", message: TURNSTILE_REQUIRED });
+      return;
+    }
 
     // Submit animation - only run on client
     if (isClient && formRef.current) {
@@ -126,22 +194,32 @@ export default function ContactUs() {
       });
     }
 
+    setIsSubmitting(true);
     try {
-      await submitForm({
-        variables: {
-          ...formData,
-          formType: "DREAMFOX_CONTACT_US",
-          pageUrl: typeof window !== "undefined" ? window.location.href : "",
-          // Map location data to supported fields
-          country: locationData.country_code || formData.country || null,
-          city: locationData.city || formData.city || null,
-          address: locationData.region
-            ? `${locationData.region}, ${locationData.country_name}`
-            : formData.address || null,
-        },
-      });
+      // No automatic retry: if the network result is uncertain, a retry could
+      // create a duplicate submission.
+      await submitDreamfoxContactUs(data, turnstileToken);
+      showSuccess();
     } catch (error) {
-      console.error("Submission failed:", error);
+      if (!(error instanceof ContactSubmitError)) {
+        console.error("Contact form submission failed:", error);
+      }
+      const fieldErrors = error.fieldErrors || {};
+      const invalidFields = Object.keys(fieldErrors);
+      if (invalidFields.length) {
+        setErrors((prev) => ({ ...prev, ...fieldErrors }));
+        form.elements.namedItem(invalidFields[0])?.focus();
+      }
+      if (error.status === 429) startCooldown();
+      // Entered values are kept so the visitor can retry.
+      setSubmitStatus({
+        type: "error",
+        message: error instanceof ContactSubmitError ? error.message : CONTACT_MESSAGES.generic,
+      });
+    } finally {
+      // Turnstile tokens are single-use: get a fresh one for the next attempt.
+      turnstile.reset();
+      setIsSubmitting(false);
     }
   };
 
@@ -269,47 +347,82 @@ export default function ContactUs() {
 
             {/* Main form container */}
             <div className="relative bg-white/10 backdrop-blur-3xl border border-white/20 rounded-3xl p-8 shadow-2xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                {/* Honeypot: hidden from people and screen readers. Bots that
+                    fill every field are silently dropped in handleSubmit. */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px overflow-hidden"
+                >
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
+                <p className="px-2 text-sm text-gray-300">
+                  Fields marked <span className="text-[#E7308F] font-semibold">*</span> are required.
+                </p>
+
                 {/* Name Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                    <input
-                      type="text"
-                      name="firstName"
-                      placeholder="First Name"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="relative w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-300 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-300 group-hover:bg-white/12 shadow-lg"
-                    />
+                  <div>
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <input
+                        type="text"
+                        placeholder="First Name"
+                        autoComplete="given-name"
+                        maxLength={LIMITS.nameMax}
+                        required
+                        {...fieldProps("firstName")}
+                        className={inputClass(errors.firstName, "pr-12")}
+                      />
+                      <RequiredMark />
+                    </div>
+                    <FieldError name="firstName" message={errors.firstName} />
                   </div>
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                    <input
-                      type="text"
-                      name="lastName"
-                      placeholder="Last Name"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="relative w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-300 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-300 group-hover:bg-white/12 shadow-lg"
-                    />
+                  <div>
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <input
+                        type="text"
+                        placeholder="Last Name"
+                        autoComplete="family-name"
+                        maxLength={LIMITS.nameMax}
+                        required
+                        {...fieldProps("lastName")}
+                        className={inputClass(errors.lastName, "pr-12")}
+                      />
+                      <RequiredMark />
+                    </div>
+                    <FieldError name="lastName" message={errors.lastName} />
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="relative w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-300 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-300 group-hover:bg-white/12 shadow-lg"
-                  />
+                <div>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      autoComplete="email"
+                      inputMode="email"
+                      maxLength={LIMITS.emailMax}
+                      required
+                      {...fieldProps("email")}
+                      className={inputClass(errors.email, "pr-12")}
+                    />
+                    <RequiredMark />
+                  </div>
+                  <FieldError name="email" message={errors.email} />
                 </div>
 
                 {/* Phone and Company */}
@@ -339,45 +452,70 @@ export default function ContactUs() {
                 </div> */}
 
                 {/* Subject */}
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="relative w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-300 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-300 group-hover:bg-white/12 shadow-lg"
-                  />
+                <div>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <input
+                      type="text"
+                      placeholder="Subject"
+                      maxLength={LIMITS.subjectMax}
+                      required
+                      {...fieldProps("subject")}
+                      className={inputClass(errors.subject, "pr-12")}
+                    />
+                    <RequiredMark />
+                  </div>
+                  <FieldError name="subject" message={errors.subject} />
                 </div>
 
                 {/* Message */}
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                  <textarea
-                    name="message"
-                    placeholder="Tell us about your project..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="relative w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-300 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-all duration-300 resize-none group-hover:bg-white/12 shadow-lg"
-                  />
+                <div>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#DC6263]/20 to-[#D2448D]/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <textarea
+                      placeholder="Tell us about your project..."
+                      rows={5}
+                      maxLength={LIMITS.messageMax}
+                      {...fieldProps("message")}
+                      className={inputClass(errors.message, "resize-none")}
+                    />
+                  </div>
+                  <div className="flex items-start justify-between gap-4">
+                    <FieldError name="message" message={errors.message} />
+                    <p className="mt-2 px-2 ml-auto text-xs text-gray-400 shrink-0">
+                      {formData.message.length}/{LIMITS.messageMax}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Cloudflare Turnstile security check */}
+                <div>
+                  <div ref={turnstile.containerRef} className="min-h-[65px]" />
+                  {turnstile.hasError && (
+                    <p className="mt-2 px-2 text-sm text-red-300">
+                      The security check couldn't load. Please refresh the page and try again.
+                    </p>
+                  )}
                 </div>
 
                 {/* Submit Status */}
-                {submitStatus === "success" && (
-                  <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-2xl">
-                    <p className="text-green-300 text-center">
-                      Message sent successfully!
-                    </p>
-                  </div>
-                )}
-
-                {submitStatus === "error" && (
-                  <div className="p-4 bg-red-500/20 border border-red-500/30 rounded-2xl">
-                    <p className="text-red-300 text-center">
-                      Failed to send message. Please try again.
+                {submitStatus && (
+                  <div
+                    role={submitStatus.type === "error" ? "alert" : "status"}
+                    className={`p-4 rounded-2xl border ${
+                      submitStatus.type === "success"
+                        ? "bg-green-500/20 border-green-500/30"
+                        : "bg-red-500/20 border-red-500/30"
+                    }`}
+                  >
+                    <p
+                      className={`text-center ${
+                        submitStatus.type === "success"
+                          ? "text-green-300"
+                          : "text-red-300"
+                      }`}
+                    >
+                      {submitStatus.message}
                     </p>
                   </div>
                 )}
@@ -385,7 +523,7 @@ export default function ContactUs() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || isCoolingDown}
                   className="relative w-full group overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-[#DC6263] via-[#D2448D] to-[#DC6263] rounded-2xl"></div>

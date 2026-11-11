@@ -165,7 +165,6 @@ const JobListingsGrid = () => {
       className=" pb-16 lg:pb-32 bg-black  px-6"
       id="openings"
     >
-      {/* <SidebarForm /> */}
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 lg:mb-24">
